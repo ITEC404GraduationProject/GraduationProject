@@ -1,4 +1,5 @@
 using GraduationProject;
+using GraduationProject.Services;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
@@ -15,7 +16,7 @@ builder.Services.AddSingleton<IDatabaseSettings>(sp =>
 builder.Services.AddSingleton<IMongoClient>(sp =>
     new MongoClient(builder.Configuration.GetValue<string>("MongoConnection:ConnectionString")));
 
-// builder.Services.AddScoped<IBookServices, BookServices>();
+builder.Services.AddScoped<IStudentServices, StudentServices>();
 
 builder.Services.AddControllersWithViews();
 
