@@ -1,0 +1,40 @@
+.header-account__dropdown {
+  opacity: 0;
+  position: absolute;
+  background-color: white;
+  width: 300px;
+  top: 100px;
+  right: 0;
+  border: 1px solid lightgray;
+  border-radius: 0 0 12px 12px;
+  transition: 0.2s;
+  pointer-events: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-account__dropdown input {
+  border: 1px solid gray;
+  width: 100%;
+  height: 40px;
+}
+
+.header-account__dropdown-show {
+  pointer-events: auto;
+  top: 65px;
+  opacity: 1;
+}
+
+.header-account__content-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  //margin-bottom: 10px;
+  gap: 20px;
+}
