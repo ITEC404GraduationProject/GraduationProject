@@ -72,8 +72,7 @@ namespace GraduationProject.Controllers
             Console.WriteLine(student);
             if (student == null)
             {
-                // return NotFound($"Student with Id = {id} not found");
-                return Ok("BABABAB");
+                return NotFound($"Student with Id = {id} not found");
             }
 
             _studentServices.Remove(student.Id);
