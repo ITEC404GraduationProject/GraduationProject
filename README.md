@@ -13,6 +13,8 @@ Welcome to the ITEC404 Graduation Project repository. We are here to build proje
 
 - Backend is based on **ASP.NET** Core in **.NET 6**. Also, we use **MVC** pattern which involves logic separation on **Models, Controllers and Views**. While view is represented in **ClientApp** folder by **React** framework, backend logic is separated on folders **Models** (Represent database model), **Controllers** (Defines endpoints of application), and **Services** (Defines data processing methods that are used in Controllers)
 
+- Database is located in MongoDB. Connection is already set up.
+
 # How to launch a project
 
 1. Clone github repository to your computer.
