@@ -15,13 +15,23 @@ Welcome to the ITEC404 Graduation Project repository. We are here to build proje
 
 - Database is located in MongoDB. Connection is already set up.
 
-# How to launch a project
-
+# How to start a project
+### Start both frontend and backend
 1. Clone github repository to your computer.
 2. Download any application that can run .NET 6 project (ex. Visual Studio 2022).
-3. Launch the project with your application.
-4. Wait until all packages are installed (it can take some time)
-5. Both backend and frontend should start automatically after all packages are installed.
+3. Install nodejs.
+4. Launch the project with your application.
+5. Wait until all packages are installed (it can take some time)
+6. Both backend and frontend should start automatically after all packages are installed.
+
+### Start only frontend
+Note: If you start only frontend, application will not be able to interact with database.
+1. Clone github repository to your computer.
+2. Install nodejs.
+3. Open terminal from the **../GraduationProject/ClientApp** folder
+4. Enter ```npm install``` command.
+5. Wait until all packages are installed.
+6. Enter ```npm start``` command.
 
 # How to use github
 
@@ -39,11 +49,11 @@ Welcome to the ITEC404 Graduation Project repository. We are here to build proje
 
 # How to clone github repository
 
-## Using Personal Access Token
+### Using Personal Access Token
 
 - Create **Personal access token** in your account. [Click here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) if you don't know how to create Personal access token
 - install git on your computer
-- Use ``` git clone https://github.com/ITEC404GraduationProject/GraduationProject.git ``` command in the directory where you want.
-- Enter you github Username in console when Username is asked
+- Use ``` git clone https://github.com/ITEC404GraduationProject/GraduationProject.git ``` command in the terminal in directory where you want to.
+- Enter you github Username in terminal when Username is asked
 - Enter your **Personal access token instead of a password** when password is asked
 
