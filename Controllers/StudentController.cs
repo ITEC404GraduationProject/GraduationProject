@@ -1,11 +1,14 @@
 ﻿using GraduationProject.Models;
 using GraduationProject.Services;
 using Microsoft.AspNetCore.Mvc;
+using BCrypt.Net;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace GraduationProject.Controllers
 {
+    [Authorize]
     [Route("api/student")]
     [ApiController]
     public class StudentController : ControllerBase
@@ -42,8 +45,34 @@ namespace GraduationProject.Controllers
         [HttpPost]
         public ActionResult<Student> Post([FromBody] Student student)
         {
-            _studentServices.Create(student);
-            return CreatedAtAction(nameof(Get), new { id = student.Id }, student);
+
+            var existingStudent = _studentServices.GetByEmail(student.Email);
+            if (existingStudent == null)
+            {
+                _studentServices.Create(student);
+                return CreatedAtAction(nameof(Get), new { id = student.Id }, student);
+            }
+
+            return Content("Student with this email already exist");
+        }
+
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public ActionResult<Student> Authenticate([FromBody] UserCred userCred)
+        {
+            var existingStudent = _studentServices.GetByEmail(userCred.Email);
+            if (existingStudent == null)
+            {
+                return NotFound("Student account with this email was not found");
+            }
+
+            var token = _studentServices.Authenticate(existingStudent, userCred.Password);
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(token);
         }
 
         // PUT api/<StudentController>/5

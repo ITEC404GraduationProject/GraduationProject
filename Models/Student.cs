@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using System.ComponentModel.DataAnnotations;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace GraduationProject.Models
@@ -10,18 +11,26 @@ namespace GraduationProject.Models
         public string Id { get; set; } = String.Empty;
 
         [BsonElement("name")]
-        public string Name { get; set; } = String.Empty;
+        [BsonRequired]
+        public string Name { get; set; }
 
         [BsonElement("surname")]
-        public string Surname { get; set; } = String.Empty;
+        [BsonRequired]
+        public string Surname { get; set; }
 
         [BsonElement("password")]
-        public string Password { get; set; } = String.Empty;
+        [BsonRequired]
+        [MinLength(8)]
+        [RegularExpression("(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,})$", ErrorMessage = "Invalid Password")]
+        public string Password { get; set; }
 
         [BsonElement("email")]
-        public string Email { get; set; } = String.Empty;
+        [BsonRequired]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
+        public string Email { get; set; }
 
         [BsonElement("studentNumber")]
-        public string StudentNumber { get; set; } = String.Empty;
+        [BsonRequired]
+        public string StudentNumber { get; set; }
     }
 }
