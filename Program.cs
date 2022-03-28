@@ -18,6 +18,23 @@ builder.Services.AddSingleton<IMongoClient>(sp =>
 
 builder.Services.AddScoped<IStudentServices, StudentServices>();
 
+
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        builder =>
+        {
+            builder.AllowCredentials();
+            builder.WithOrigins("https://localhost:44413", "http://localhost:44413");
+            builder.WithHeaders("Content-Type", "Authorization");
+            builder.WithMethods("GET", "POST", "PUT", "DELETE");
+        });
+});
+
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -33,6 +50,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllerRoute(
     name: "default",
