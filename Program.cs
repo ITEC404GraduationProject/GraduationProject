@@ -1,6 +1,9 @@
+using System.Text;
 using GraduationProject;
 using GraduationProject.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,8 +16,26 @@ builder.Services.Configure<DatabaseSettings>(
 builder.Services.AddSingleton<IDatabaseSettings>(sp =>
     sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
-builder.Services.AddSingleton<IMongoClient>(sp =>
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(x =>
+{
+    x.RequireHttpsMetadata = false;
+    x.SaveToken = true;
+    x.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("This is super secret key for jwt")),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+});
+
+builder.Services.AddSingleton<IMongoClient>(sp => 
     new MongoClient(builder.Configuration.GetValue<string>("MongoConnection:ConnectionString")));
+
 
 builder.Services.AddScoped<IStudentServices, StudentServices>();
 
@@ -51,6 +72,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseCors(MyAllowSpecificOrigins);
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
