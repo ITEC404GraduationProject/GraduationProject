@@ -69,7 +69,6 @@ namespace GraduationProject.Controllers
         public ActionResult Delete(string id)
         {
             var student = _studentServices.Get(id);
-            Console.WriteLine(student);
             if (student == null)
             {
                 return NotFound($"Student with Id = {id} not found");
