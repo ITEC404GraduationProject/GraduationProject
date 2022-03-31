@@ -1,7 +1,7 @@
 import "./Home.scss"
 
 import Header from "../header/Header";
-import SliderWithSearch from "../slider-with-search/SliderWithSearch";
+import SliderHomePage from "../slider-home-page/SliderHomePage";
 import SearchForm from "../search-form/SearchForm";
 import {useWindowSize} from "../../hooks/useWindowSize";
 
@@ -13,7 +13,7 @@ const Home = () => {
         <div className="home">
             <Header />
             <div className="search-row">
-                <SliderWithSearch />
+                <SliderHomePage />
                 { windowSize.windowWidth > 720 && <SearchForm />}
             </div>
 

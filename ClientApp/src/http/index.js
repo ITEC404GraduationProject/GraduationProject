@@ -12,6 +12,7 @@ $api.interceptors.request.use((config) => {
     return config;
 })
 
+
 // Template of how to access backend endpoints
 
 // $api.get(`/student`, {withCredentials: true})
