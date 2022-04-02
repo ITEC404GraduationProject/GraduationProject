@@ -14,27 +14,14 @@ const SearchForm = () => {
     const [searchParams, setSearchParams] = useState(null)
 
     const onValueChange = (value) => {
-
-        value[0] = parseInt(value[0])
-        value[1] = parseInt(value[1])
-
-
-        if (parseInt(value[0]) > parseInt(value[1])) { value[0] = value[1] }
-        if (parseInt(value[1]) < value[0]) { value[1] = value[0] }
-        if (value[0] < values.minValue) { value[0] = values.minValue }
-        if (value[1] > values.maxValue) { value[1] = values.maxValue }
-        onSetSearchParams(value)
-    }
-
-    const onSetSearchParams = (value) => {
         setSearchParams(prev => {
             return {minValue: parseInt(value[0]), maxValue: parseInt(value[1])}
         })
     }
 
     useEffect(() => {
-        setValues({minValue: 200, maxValue: 5000})
-        setSearchParams({minValue: 200, maxValue: 5000})
+        setValues({minValue: 0, maxValue: 5000})
+        setSearchParams({minValue: 0, maxValue: 5000})
     }, [])
 
     const options = [
@@ -75,13 +62,22 @@ const SearchForm = () => {
                         <span>{values.minValue}</span>
                         <span>{values.maxValue}</span>
                     </div>
-                    <DoubleRangeSlider minValue={values.minValue} maxValue={values.maxValue} onValueChange={onValueChange} />
+                    <DoubleRangeSlider values={values} onValueChange={onValueChange} />
                     <div className="show-more__price-inputs">
-                        <input type="number" value={searchParams.minValue} onChange={e => onValueChange([e.target.value, searchParams.maxValue])}/>
-                        <button type={"button"} onClick={() => {
-                            console.log(searchParams)}
-                        }>Test</button>
-                        <input type="number" value={searchParams.maxValue} onChange={e => onValueChange([searchParams.minValue, e.target.value])}/>
+                        <input type="text" value={searchParams.minValue} />
+                        <input type="text" value={searchParams.maxValue} />
+                    </div>
+                    <div className="show-more__checkbox-group">
+                        <div className="show-more__checkbox-input"><input name={"checkbox1"} type={"checkbox"} value={1} /><label htmlFor={"checkbox1"}>Bed</label></div>
+                        <div className="show-more__checkbox-input"><input name={"checkbox1"} type={"checkbox"} value={1} /><label htmlFor={"checkbox1"}>TV</label></div>
+                        <div className="show-more__checkbox-input"><input name={"checkbox1"} type={"checkbox"} value={1} /><label htmlFor={"checkbox1"}>Internet</label></div>
+                        <div className="show-more__checkbox-input"><input name={"checkbox1"} type={"checkbox"} value={1} /><label htmlFor={"checkbox1"}>Microwave</label></div>
+                    </div>
+                    <div className="show-more__checkbox-group">
+                        <div className="show-more__checkbox-input"><input name={"checkbox1"} type={"checkbox"} value={1} /><label htmlFor={"checkbox1"}>Kitchen</label></div>
+                        <div className="show-more__checkbox-input"><input name={"checkbox1"} type={"checkbox"} value={1} /><label htmlFor={"checkbox1"}>Washing Machine</label></div>
+                        <div className="show-more__checkbox-input"><input name={"checkbox1"} type={"checkbox"} value={1} /><label htmlFor={"checkbox1"}>Air Conditioner</label></div>
+                        <div className="show-more__checkbox-input"><input name={"checkbox1"} type={"checkbox"} value={1} /><label htmlFor={"checkbox1"}>Iron</label></div>
                     </div>
                 </div>
             }
