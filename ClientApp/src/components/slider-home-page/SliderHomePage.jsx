@@ -1,9 +1,9 @@
-import "./SliderWithSearch.scss"
+import "./SliderHomePage.scss"
 import {useEffect, useRef} from "react";
 import {GrNext, GrPrevious} from "react-icons/all";
 import Sim from "../../style/scripts/homePageSlider";
 
-const SliderWithSearch = () => {
+const SliderHomePage = () => {
 
     const sliderRef = useRef()
 
@@ -44,4 +44,4 @@ const SliderWithSearch = () => {
     )
 }
 
-export default SliderWithSearch
+export default SliderHomePage
