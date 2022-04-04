@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "name": "1",
+    "description": "123123123123123123123",
+    "agent": "1",
+    "address": "1",
+    "pricePerMonth": "100",
+    "imgLink": "https://assets.architecturaldesigns.com/plan_assets/21093/original/21093DR_1524152558.jpg?1524152558"
+  },
+  {
+    "id": "2",
+    "name": "2",
+    "description": "123123123123123123123",
+    "agent": "2",
+    "address": "2",
+    "pricePerMonth": "100",
+    "imgLink": "https://gidstroitelstva.ru/wp-content/uploads/2020/09/dom-iz-kamnya-64-2048x1643.jpg"
+  },
+  {
+    "id": "3",
+    "name": "3",
+    "description": "123123123123123123123",
+    "agent": "3",
+    "address": "3",
+    "pricePerMonth": "100",
+    "imgLink": "https://get.pxhere.com/photo/lawn-villa-mansion-house-building-home-suburb-cottage-backyard-facade-property-exterior-luxury-farmhouse-estate-siding-manor-house-real-estate-residential-area-historic-house-542559.jpg"
+  },
+  {
+    "id": "4",
+    "name": "4",
+    "description": "123123123123123123123",
+    "agent": "4",
+    "address": "4",
+    "pricePerMonth": "100",
+    "imgLink": "https://nskdoska.ru/images/com_adsmanager/contents/stroitelstvo-i-vnutrennyaya-otdelka-domov-iz-dereva_9197_4.jpg"
+  },
+  {
+    "id": "5",
+    "name": "5",
+    "description": "123123123123123123123",
+    "agent": "5",
+    "address": "5",
+    "pricePerMonth": "100",
+    "imgLink": "https://krov-torg.ru/wp-content/uploads/2018/03/коттедж-премиум-класса.jpg"
+  },
+  {
+    "id": "6",
+    "name": "6",
+    "description": "123123123123123123123",
+    "agent": "6",
+    "address": "6",
+    "pricePerMonth": "100",
+    "imgLink": "https://w-dog.ru/wallpapers/2/16/505337564317459/vneshnij-vid-interer-dom-glavnaya-eksterer-kamen-derevo-stol-kresla.jpg"
+  },
+  {
+    "id": "7",
+    "name": "7",
+    "description": "123123123123123123123",
+    "agent": "7",
+    "address": "7",
+    "pricePerMonth": "100",
+    "imgLink": "https://yandex-images.clstorage.net/TDX954b52/a5c1bejQV/lmmNjwY488dG510tu48lk5FJaBqyrXI49PKHdo6g7nu2J8EhIwIsdN1TnVPWlS2G7nXZf7n43DEHjRn0NdNVGJNogONeVaOSC9YRmKK-VNq8dFV7w-g-SJjH0kLn9Z9j5waBDONeHH3QAgFH-olROkb5oKNMAU30_zDw9W3iBFGnEYiyx_n3l6Inif3Oj4UfePXsKoJl1sXcGpt_EuSqgsbzBaWXBvClMIb0hgN8yV4KXYDjjGWh1Nt0LL157lwhzgVwJq-I37dam-H5YnMVOwAh5Mre2V4ZWAavs6oo2j4-D00xd0JQJQCa6Ab7YF1SruGUzzT5iWBfgIAVRcZcSV7B2P4vGKt71of1JeYjhVscyYAagl32MXziP59SiCrCVvMJUT8CvPG0OnSe-4yZSo7xQIO85bGUc0gMgakeECHucRRWX0ST0w4TxU1uK7mffDkskqYp8n2QxiNHpmx2wjZnZXHvrpw53I7gQnvMWfImsUQ_IAnllOeoTE3x7pgN1sFofnOgp9P-I_EtQgvVj_gVMCaatSJJ-IZze_pkWp6KK7EFk4YEXWjawKr_2KHabnFMQ-RxVRSLXCy9ZWJwfd4tqEYHxMuHJv9VAbqzRb9ANTS-BpGi1YTei3ea1Da2mpcBJUvCMMn4jpS-L3glBqLVdDdste0IT9BErbkSoO3KHWi2j-S7E1bf0cFa173bCL2wXsIJslEc5sf32oTS4tpv3b1L8tBlcBowFq-MzWomnQz7AIFNTHPUWDlxasB5YqX8Uvscv7PmB8XVHispt2ClJIoCoUIRyPozqwaIQsrCl3V5h15Q5aD-rGrzUEVKEs0sO3DZzcz3XCgJfT5YEYodgE4rPDd7xp-9XXrTsdt0qVgu1uHejXxaHzuG2MKWGi_NJdsmXKFsCvgiExQd_ublHINUeZXs31SINS0OfFFKcWiyLxTH39angSUmPwFHnHmUAhalqkXYzi-Ptvyc"
+  },
+  {
+    "id": "8",
+    "name": "8",
+    "description": "123123123123123123123",
+    "agent": "8",
+    "address": "8",
+    "pricePerMonth": "100",
+    "imgLink": "https://yellowhome.ru/wp-content/uploads/2016/12/79-15.jpg"
+  },
+  {
+    "id": "9",
+    "name": "9",
+    "description": "123123123123123123123",
+    "agent": "9",
+    "address": "9",
+    "pricePerMonth": "100",
+    "imgLink": "https://postroiv.ru/wp-content/uploads/2021/11/1617245228_1-p-sovremennii-zagorodnii-dom-1.jpg"
+  },
+  {
+    "id": "10",
+    "name": "10",
+    "description": "123123123123123123123",
+    "agent": "10",
+    "address": "10",
+    "pricePerMonth": "100",
+    "imgLink": "https://blog.postel-deluxe.ru/wp-content/uploads/2021/04/zagorodnyy-dom-iz-brusa-v-sosnovom-lesu-rossiya-16.jpg"
+  }
+]
