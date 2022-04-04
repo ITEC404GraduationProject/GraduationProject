@@ -1,7 +1,9 @@
 import {Switch, Redirect, Route} from "react-router-dom";
 
 import Home from "./components/home/Home";
-import SearchResults from "./components/search-results/SearchResults";
+import Login from "./components/login/Login";
+import Test from "./components/login/sComp";
+
 
 const Routes = () => {
     return (
@@ -9,8 +11,8 @@ const Routes = () => {
             <Route path="/home">
                 <Home />
             </Route>
-            <Route path="/results">
-                <SearchResults />
+            <Route path="/login">
+                <Test />
             </Route>
             <Route path="/agents">
 
