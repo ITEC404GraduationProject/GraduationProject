@@ -11,3 +11,11 @@
   margin: auto;
   height: inherit;
 }
+
+.page__row {
+  padding-top: 90px;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
