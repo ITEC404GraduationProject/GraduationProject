@@ -4,7 +4,7 @@ import DropdownLogin from "../dropdown-login/DropdownLogin";
 
 const HeaderAccountDropdown = ({ dropdownRef }) => {
 
-    const isAuthorized = true
+    const isAuthorized = false
 
     return (
         <div className="header-account__dropdown" ref={dropdownRef}>

@@ -1,6 +1,6 @@
 import "./HeaderMenuButton.scss"
 import {useRef} from "react";
-import openMobileMenu from "../../style/scripts/openMobileMenu";
+import openMobileMenu from "../../../style/scripts/openMobileMenu";
 
 const HeaderMenuButton = ({ mobileMenuRef }) => {
 

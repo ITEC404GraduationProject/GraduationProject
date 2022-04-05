@@ -1,10 +1,9 @@
 .header-menu__button {
   height: 65px;
   width: 65px;
-  background: #edb23b;
+  background-color: var(--color-orange);
   z-index: 100;
 }
-
 
 .header-menu__button-content {
   width: inherit;
@@ -19,7 +18,7 @@
   width: 25px;
   border: none;
   height: 1px;
-  background: black;
+  background-color: #000;
   transition: 0.2s;
   pointer-events: none;
 }

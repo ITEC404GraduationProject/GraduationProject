@@ -3,11 +3,11 @@ import "./Header.scss"
 import {useWindowSize} from "../../hooks/useWindowSize";
 import {useRef} from "react";
 
-import HeaderLogo from "../header-logo/HeaderLogo";
-import HeaderNavbar from "../header-navbar/HeaderNavbar";
-import HeaderAccount from "../header-account/HeaderAccount";
-import HeaderMenuButton from "../header-menu-button/HeaderMenuButton";
-import MobileMenu from "../mobile-menu/MobileMenu";
+import HeaderLogo from "./header-logo/HeaderLogo";
+import HeaderNavbar from "./header-navbar/HeaderNavbar";
+import HeaderAccount from "./header-account/HeaderAccount";
+import HeaderMenuButton from "./header-menu-button/HeaderMenuButton";
+import MobileMenu from "./mobile-menu/MobileMenu";
 
 
 const Header = () => {

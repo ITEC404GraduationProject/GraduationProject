@@ -1,4 +1,4 @@
-.main-nav {
+.mobile-menu {
   position: absolute;
   top: 0;
   right: 0;
@@ -12,13 +12,13 @@
   transition: all .375s;
 }
 
-.main-nav.is-open {
+.mobile-menu.is-open {
   opacity: 1;
   z-index: 99;
   visibility: visible;
 }
 
-.main-nav::before {
+.mobile-menu::before {
   content: '';
   position: absolute;
   top: 0;
@@ -32,11 +32,11 @@
   transition: all .275s .1s;
 }
 
-.main-nav.is-open::before {
+.mobile-menu.is-open::before {
   transform: skew(-14deg) translateX(0);
 }
 
-.main-nav ul {
+.mobile-menu ul {
   display: inline-flex;
   flex-direction: column;
   height: 100%;
@@ -45,82 +45,61 @@
   transform: translateX(-18%) skew(-16deg);
 }
 
-.main-nav li {
+.mobile-menu li {
   display: block;
   margin: .5rem 0;
   text-align: right;
   transform: skew(16deg);
 }
 
-.main-nav a {
+.mobile-menu a {
   opacity: 0;
   transform: translateY(-10px);
 }
 
-.main-nav h3 {
+.mobile-menu h3 {
   opacity: 0;
   transform: translateY(-10px) translateX(25px);
 }
 
-.main-nav.is-open a {
+.mobile-menu.is-open a {
   opacity: 1;
   transform: translateY(0);
 }
 
-.main-nav.is-open h3 {
+.mobile-menu.is-open h3 {
   opacity: 1;
   transform: translateY(0) translateX(25px);
 }
 
-.main-nav li:nth-child(1) a {
+.mobile-menu li:nth-child(1) a {
   transition: all 275ms 175ms
 }
-.main-nav li:nth-child(2) a {
+.mobile-menu li:nth-child(2) a {
   transition: all 275ms 225ms
 }
-.main-nav li:nth-child(3) a {
+.mobile-menu li:nth-child(3) a {
   transition: all 275ms 275ms
 }
-.main-nav li:nth-child(4) a {
+.mobile-menu li:nth-child(4) a {
   transition: all 275ms 325ms
 }
-.main-nav li:nth-child(5) a {
+.mobile-menu li:nth-child(5) a {
   transition: all 275ms 375ms
 }
-.main-nav li:nth-child(6) h3 {
+.mobile-menu li:nth-child(6) h3 {
   transition: all 275ms 425ms;
 }
 
-
-/* Decoration */
-.main-nav ul,
-.main-nav li {
-  list-style: none;
-  padding: 0;
-}
-.main-nav {
+.mobile-menu {
   a, h3 {
     display: block;
     padding: 12px 0;
     color: #5A3B5D;
-    font-size: 1.4em;
+    font-size: 1.3em;
     text-decoration: none;
     font-weight: bold;
   }
-
-  h3 {
-    font-size: 1.3em;
-  }
-}
-
-
-.aa {
-  width: 200px;
-  border-radius: 8px;
-  height: 100px;
-  background: rgb(240,240,240);
-  box-shadow: -2px 2px 5px 1px rgb(130, 130, 130);
-  transform: skew(-14deg) translateX(5%);
 }
 
 
