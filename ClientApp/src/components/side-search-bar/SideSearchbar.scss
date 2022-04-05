@@ -28,16 +28,17 @@
   gap: 20px;
   /*background: green;*/
 
+  input[type="text"] {
+    height: 28px;
+    border-radius: 7px;
+    border: 1px solid gray;
+    width: calc(100% - 20px);
+    padding: 2px 10px;
+    font-size: 12pt;
+  }
+
 }
 
-input[type="text"] {
-  height: 28px;
-  border-radius: 7px;
-  border: 1px solid gray;
-  width: calc(100% - 20px);
-  padding: 2px 10px;
-  font-size: 12pt;
-}
 
 select {
   padding: 2px 10px;
