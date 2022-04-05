@@ -1,8 +1,6 @@
-import "./App.css"
+import "./App.scss"
 import "./style/media/resolution.scss"
 import "./style/utilities/utilities.scss"
-import "./style/utilities/input.scss"
-import "./style/utilities/button.scss"
 
 
 
