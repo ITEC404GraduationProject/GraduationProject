@@ -4,7 +4,7 @@ const MobileMenu = ({ mobileMenuRef }) => {
 
 
     return (
-        <nav className="main-nav" id="main-nav" ref={mobileMenuRef}>
+        <nav className="mobile-menu" ref={mobileMenuRef}>
             <ul>
                 <li>
                     <a href="#">Home</a>

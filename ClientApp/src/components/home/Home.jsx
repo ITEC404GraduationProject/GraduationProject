@@ -10,14 +10,13 @@ const Home = () => {
     const windowSize = useWindowSize()
 
     return (
-        <div className="home">
+        <>
             <Header />
             <div className="search-row">
                 <SliderHomePage />
                 { windowSize.windowWidth > 720 && <SearchForm />}
             </div>
-
-        </div>
+        </>
     )
 }
 

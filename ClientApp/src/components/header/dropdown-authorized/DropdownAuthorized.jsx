@@ -1,6 +1,6 @@
 import "./DropdownAuthorized.scss"
-import userIcon from "../../assets/icons/user.png"
-import arrowIcon from "../../assets/icons/arrow.png"
+import userIcon from "../../../assets/icons/user.png"
+import arrowIcon from "../../../assets/icons/arrow.png"
 
 import { FiSettings } from "react-icons/all";
 import {FiLogOut} from "react-icons/all";
@@ -31,11 +31,11 @@ const DropdownAuthorized = () => {
             </div>
             <div className="header-account__content-links">
                 <div className="header-account__content-link">
-                    <FiSettings className="icon"/>
+                    <FiSettings />
                     <div>Settings</div>
                 </div>
                 <div className="header-account__content-link">
-                    <FiLogOut className="icon"/>
+                    <FiLogOut />
                     <div>Log Out</div>
                 </div>
             </div>

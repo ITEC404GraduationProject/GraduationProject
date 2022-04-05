@@ -4,12 +4,11 @@
   align-items: center;
   gap: 10px;
   font-size: 16pt;
-}
 
-.header__logo img {
-  height: 55px;
-}
-
-.header__logo span {
-
+  img {
+    height: 55px;
+  }
+  span {
+    font-weight: 500;
+  }
 }

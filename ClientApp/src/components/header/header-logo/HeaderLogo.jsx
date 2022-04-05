@@ -1,5 +1,5 @@
 import "./HeaderLogo.scss"
-import logo from "../../assets/logo/Logo.PNG"
+import logo from "../../../assets/logo/Logo.PNG"
 
 const HeaderLogo = ({ windowWidth }) => {
 
