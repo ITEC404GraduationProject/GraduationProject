@@ -1,0 +1,36 @@
+.header-account__dropdown {
+  background-color: #FFF;
+  opacity: 0;
+  width: 350px;
+  top: 100px;
+  right: 0;
+  transition: 0.2s;
+
+  border: 1px solid lightgray;
+  border-radius: 0 0 12px 12px;
+  padding: 20px;
+
+  position: absolute;
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-account__dropdown-show {
+  pointer-events: auto;
+  top: 65px;
+  opacity: 1;
+}
+
+.header-account__content-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}

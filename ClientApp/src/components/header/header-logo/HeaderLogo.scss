@@ -1,0 +1,14 @@
+.header__logo {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16pt;
+
+  img {
+    height: 55px;
+  }
+  span {
+    font-weight: 500;
+  }
+}

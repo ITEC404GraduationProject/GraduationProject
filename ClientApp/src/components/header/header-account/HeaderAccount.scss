@@ -1,0 +1,14 @@
+
+.header-account__button {
+  height: 65px;
+  width: 65px;
+  background-color: #FFF;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.header-account__button-change, .header-account__button:hover {
+  background-color: var(--color-gray);
+}

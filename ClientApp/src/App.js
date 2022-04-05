@@ -1,4 +1,4 @@
-import "./App.css"
+import "./App.scss"
 import "./style/media/resolution.scss"
 import "./style/utilities/utilities.scss"
 
@@ -7,7 +7,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 
 function App() {
     return (
-        <div className="App">
+        <div>
             <Router>
                 <Routes />
             </Router>

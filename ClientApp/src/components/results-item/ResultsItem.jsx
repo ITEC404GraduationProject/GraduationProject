@@ -1,11 +1,11 @@
 import "./ResultsItem.scss"
 
 const ResultsItem = ({item}) => {
-    console.log(item    )
+
     return (
         <div className="results__item">
             <div className="item__img">
-                <img src={item.imgLink} />
+                <img src={item.imgLink} alt={"Housing"} />
             </div>
             <div className="item__info">
                 <div className="item__info-left">
@@ -28,7 +28,7 @@ const ResultsItem = ({item}) => {
                         <h3>3000$/Year</h3>
                         <h5>300$/Month</h5>
                     </div>
-                    <div>
+                    <div className="item__buttons-group">
                         <button>♡</button>
                         <button>Open</button>
                     </div>

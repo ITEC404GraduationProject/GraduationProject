@@ -1,0 +1,50 @@
+.header-menu__button {
+  height: 65px;
+  width: 65px;
+  background-color: var(--color-orange);
+  z-index: 100;
+}
+
+.header-menu__button-content {
+  width: inherit;
+  height: inherit;
+  position: relative;
+}
+
+.header-menu__button-content hr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  border: none;
+  height: 1px;
+  background-color: #000;
+  transition: 0.2s;
+  pointer-events: none;
+}
+
+.menu-line1 {
+  transform: translate3d(-50%, calc(-50% + 4px), 0);
+}
+
+.menu-line2 {
+  transform: translate3d(-50%, calc(-50% - 4px), 0);
+}
+
+.menu-line1__enabled {
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.menu-line1__rotated {
+  transform: translate3d(-50%, -50%, 0) rotate(45deg);
+}
+
+.menu-line2__enabled {
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.menu-line2__rotated {
+  transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+}
+
+
