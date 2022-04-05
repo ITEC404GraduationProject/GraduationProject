@@ -1,7 +1,4 @@
 import "./SideSearchbar.scss"
-import {useEffect} from "react";
-import {useHistory} from "react-router-dom";
-import {useQueryStringParams} from "../../hooks/useQueryStringParams";
 
 const SideSearchbar = () => {
 

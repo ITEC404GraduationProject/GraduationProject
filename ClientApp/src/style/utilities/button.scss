@@ -1,0 +1,12 @@
+button {
+  background-color: var(--color-orange);
+  font-size: 14pt;
+  transition: 0.3s;
+  border: none;
+  border-radius: 100px;
+}
+
+button:hover {
+  box-shadow: 0 0 5px 1px gray;
+  background-color: orange;
+}

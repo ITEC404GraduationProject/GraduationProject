@@ -2,9 +2,6 @@ let elButton = null
 let elDropdown = null
 
 function showAccountDropdown(buttonElementRef, dropdownElementRef) {
-
-    console.log(buttonElementRef)
-
     elButton = buttonElementRef.current
     elDropdown = dropdownElementRef.current
 

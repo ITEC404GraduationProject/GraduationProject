@@ -6,7 +6,8 @@
   --color-gray: rgb(240, 240, 240);
   --color-darkgray: rgb(230, 230, 230);
   --color-orange: #edb23b;
-  --text-color: rgb(90, 90, 90)
+  --text-color: rgb(90, 90, 90);
+  --color-border: rgb(190, 190, 190);
 }
 
 * {
