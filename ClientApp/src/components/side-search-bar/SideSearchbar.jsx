@@ -5,7 +5,7 @@ const SideSearchbar = () => {
     return (
         <div className="side-search__wrap">
             <div className="side-search">
-                <form className="search__form-a">
+                <form className="side-search__form">
                     <h4>Search</h4>
                     <input type="text" placeholder="keyword"/>
                     <div className="search__checkboxes">

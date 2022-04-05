@@ -2,7 +2,7 @@ import "./SearchForm.scss"
 
 import {GrDown, AiOutlineSearch} from "react-icons/all";
 
-import showSearchMore from "../../style/scripts/showSeacrhMore";
+import showSearchMore from "../../../style/scripts/showSeacrhMore";
 
 import {useEffect, useState} from "react";
 import DoubleRangeSlider from "../double-range-slider/DoubleRangeSlider";
@@ -14,9 +14,7 @@ const SearchForm = () => {
     const [searchParams, setSearchParams] = useState(null)
 
     const onValueChange = (value) => {
-        setSearchParams(prev => {
-            return {minValue: parseInt(value[0]), maxValue: parseInt(value[1])}
-        })
+        setSearchParams({minValue: parseInt(value[0]), maxValue: parseInt(value[1])})
     }
 
     useEffect(() => {
@@ -42,19 +40,19 @@ const SearchForm = () => {
                 <div className="search__row-left">
                     <input className="search__input" placeholder="Search" />
                 </div>
-                <hr className="search__hr" />
-                    <div className="search__row-right">
-                        <select defaultValue={1} className="search__select" name="housingTypes">
-                            { options.map(
-                                (option) =>
-                                    (<option key={option.key} value={option.key}>{option.value}</option>))}
-                        </select>
-                        <div className="search__button">
-                            <div className="search__icon-wrap">
-                                <AiOutlineSearch />
-                            </div>
-                        </div>
+                <hr className="sep-line__vert" />
+                <div className="search__row-right">
+                    <select defaultValue={1} className="search__select" name="housingTypes">
+                        { options.map(
+                            (option) =>
+                                (<option key={option.key} value={option.key}>{option.value}</option>))}
+                    </select>
+                    <div className="search__button-wrap">
+                        <button type={"button"}>
+                            <AiOutlineSearch />
+                        </button>
                     </div>
+                </div>
             </div>
             { values &&
                 <div className="search__more">
@@ -64,8 +62,8 @@ const SearchForm = () => {
                     </div>
                     <DoubleRangeSlider values={values} onValueChange={onValueChange} />
                     <div className="show-more__price-inputs">
-                        <input type="text" value={searchParams.minValue} />
-                        <input type="text" value={searchParams.maxValue} />
+                        <input type="text" readOnly={true} value={searchParams.minValue} />
+                        <input type="text" readOnly={true} value={searchParams.maxValue} />
                     </div>
                     <div className="show-more__checkbox-group">
                         <div className="show-more__checkbox-input"><input name={"checkbox1"} type={"checkbox"} value={1} /><label htmlFor={"checkbox1"}>Bed</label></div>

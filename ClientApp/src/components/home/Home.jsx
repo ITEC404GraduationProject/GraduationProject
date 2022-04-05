@@ -1,8 +1,8 @@
 import "./Home.scss"
 
 import Header from "../header/Header";
-import SliderHomePage from "../slider-home-page/SliderHomePage";
-import SearchForm from "../search-form/SearchForm";
+import SliderHomePage from "./slider-home-page/SliderHomePage";
+import SearchForm from "./search-form/SearchForm";
 import {useWindowSize} from "../../hooks/useWindowSize";
 
 

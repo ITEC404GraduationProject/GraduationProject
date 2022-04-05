@@ -1,7 +1,7 @@
 import "./SliderHomePage.scss"
 import {useEffect, useRef} from "react";
 import {GrNext, GrPrevious} from "react-icons/all";
-import Sim from "../../style/scripts/homePageSlider";
+import Sim from "../../../style/scripts/homePageSlider";
 
 const SliderHomePage = () => {
 

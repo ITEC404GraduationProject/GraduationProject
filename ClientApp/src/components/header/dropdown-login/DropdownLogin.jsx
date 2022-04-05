@@ -16,13 +16,13 @@ const DropdownLogin = () => {
         <form className="login__form">
             <div className="login-form__wrap">
                 <div className="login-form__header">
-                    <div className={accountType === "student" && "active"} onClick={() => setAccountType("student")}>Student</div>
+                    <div className={accountType === "student" ? "active" : undefined} onClick={() => setAccountType("student")}>Student</div>
                     {/*<hr className="sep-line__vert"/>*/}
-                    <div className={accountType === "agent" && "active"} onClick={() => setAccountType("agent")}>Agent</div>
+                    <div className={accountType === "agent" ? "active" : undefined} onClick={() => setAccountType("agent")}>Agent</div>
                 </div>
                 <div className="login-form__input-group">
                     <div className="login__input-wrap">
-                        <input type={"text"} value={email} onChange={e => setEmail(e.target.value)} />
+                        <input autoComplete={"on"} type={"text"} value={email} onChange={e => setEmail(e.target.value)} />
                         <div className="login__input-line"/>
                         <div className="input-placeholder">
                             <FiMail />
@@ -32,7 +32,7 @@ const DropdownLogin = () => {
                         </div>
                     </div>
                     <div className="login__input-wrap">
-                        <input type={"password"} value={password} onChange={e => setPassword(e.target.value)} />
+                        <input autoComplete={"on"} type={"password"} value={password} onChange={e => setPassword(e.target.value)} />
                         <div className="login__input-line"/>
                         <div className="input-placeholder">
                             <FiLock />
