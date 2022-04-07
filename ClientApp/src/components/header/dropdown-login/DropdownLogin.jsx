@@ -2,8 +2,6 @@ import "./DropdownLogin.scss"
 
 import {FiMail} from "react-icons/all";
 import {FiLock} from "react-icons/all";
-
-
 import {useState} from "react";
 
 const DropdownLogin = () => {

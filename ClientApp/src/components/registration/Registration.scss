@@ -1,0 +1,32 @@
+
+.registration-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 100vw;
+}
+
+.registration {
+  height: 100%;
+  max-height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.registration-content {
+  z-index: 71;
+  width: 100%;
+  max-height: 100%;
+
+  display: flex;
+
+  background-color: #FFF;
+  box-shadow: 0 0 12px 2px rgba(15, 15, 15, 0.2);
+  border-radius: 4px;
+}

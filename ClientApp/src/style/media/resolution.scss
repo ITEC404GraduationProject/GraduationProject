@@ -8,11 +8,29 @@
   .header-menu__button {
     transform: translateX(10px);
   }
+
+  .registration__moving-bg {
+    display: none;
+  }
+
+  .registration {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @media (min-width: 720px) {
   .container {
     width: 700px;
+  }
+
+  .registration__moving-bg {
+    display: flex;
+  }
+  .registration {
+    width: 400px;
+    padding: 3% 0;
   }
 }
 

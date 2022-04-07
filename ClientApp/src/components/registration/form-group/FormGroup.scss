@@ -1,0 +1,27 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  label {
+	font-size: 14pt;
+  }
+
+  input {
+	width: 100%;
+	margin-top: 3px;
+	background-color: #f3f3f3;
+	transition: all 250ms ease-in-out;
+	font-size: 12pt;
+
+	&:hover {
+	  background-color: #ffffff;
+	  box-shadow: 0 0 14px 0.3px var(--color-orange);
+	}
+
+	&:focus {
+	  outline: none;
+	  box-shadow: 0 0 12px 0.8px darkorange;
+	}
+  }
+}

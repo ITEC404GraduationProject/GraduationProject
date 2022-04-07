@@ -1,11 +1,10 @@
 import "./SearchForm.scss"
 
-import {GrDown, AiOutlineSearch} from "react-icons/all";
-
-import showSearchMore from "../../../style/scripts/showSeacrhMore";
-
 import {useEffect, useState} from "react";
+
+import {GrDown, AiOutlineSearch} from "react-icons/all";
 import DoubleRangeSlider from "../double-range-slider/DoubleRangeSlider";
+import showSearchMore from "../../../style/scripts/showSeacrhMore";
 
 const SearchForm = () => {
 

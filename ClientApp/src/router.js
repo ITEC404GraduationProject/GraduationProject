@@ -2,6 +2,7 @@ import {Switch, Redirect, Route} from "react-router-dom";
 
 import Home from "./components/home/Home";
 import SearchResults from "./components/search-results/SearchResults";
+import Registration from "./components/registration/Registration";
 
 const Routes = () => {
     return (
@@ -11,6 +12,9 @@ const Routes = () => {
             </Route>
             <Route path="/results">
                 <SearchResults />
+            </Route>
+            <Route path="/registration">
+                <Registration />
             </Route>
             <Route path="/agents">
 
