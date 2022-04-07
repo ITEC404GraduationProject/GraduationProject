@@ -1,4 +1,5 @@
 import "./Home.scss"
+
 import {useWindowSize} from "../../hooks/useWindowSize";
 import Header from "../header/Header";
 import SliderHomePage from "./slider-home-page/SliderHomePage";

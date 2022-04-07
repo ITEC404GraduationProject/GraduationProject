@@ -4,7 +4,6 @@ import Home from "./components/home/Home";
 import SearchResults from "./components/search-results/SearchResults";
 import Registration from "./components/registration/Registration";
 
-
 const Routes = () => {
     return (
         <Switch>
