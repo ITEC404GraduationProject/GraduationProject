@@ -1,7 +1,6 @@
 import "./ResultsItem.scss"
 
 const ResultsItem = ({item}) => {
-
     return (
         <div className="results__item">
             <div className="item__img">

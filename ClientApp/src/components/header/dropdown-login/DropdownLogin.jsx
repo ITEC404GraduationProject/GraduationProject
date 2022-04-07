@@ -3,7 +3,6 @@ import "./DropdownLogin.scss"
 import {FiMail} from "react-icons/all";
 import {FiLock} from "react-icons/all";
 
-
 import {useState} from "react";
 
 const DropdownLogin = () => {
@@ -11,6 +10,7 @@ const DropdownLogin = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [accountType, setAccountType] = useState("student")
+
 
     return (
         <form className="login__form">
@@ -48,6 +48,7 @@ const DropdownLogin = () => {
                 <hr className="sep-line__hor"/>
                 <div className="login-form__help-buttons">
                     <button type={"button"}>Forgot password?</button>
+                    {/*<Link to={"registration"}>Not a user? Sign up</Link>*/}
                     <button type={"button"}>Not a user? Sign up</button>
                 </div>
             </div>

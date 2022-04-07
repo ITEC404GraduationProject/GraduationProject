@@ -1,28 +1,27 @@
 import "./MobileMenu.scss"
+import {Link} from "react-router-dom";
 
 const MobileMenu = ({ mobileMenuRef }) => {
-
-
     return (
         <nav className="mobile-menu" ref={mobileMenuRef}>
             <ul>
                 <li>
-                    <a href="#">Home</a>
+                    <Link to={"/home"}>Home</Link>
                 </li>
                 <li>
-                    <a href="#">Agents</a>
+                    <Link to={"/agents"}>Agents</Link>
                 </li>
                 <li>
-                    <a href="#">For users</a>
+                    <Link to={"/forusers"}>For users</Link>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <Link to={"/about"}>About</Link>
                 </li>
                 <li>
-                    <a href="#">FAQ</a>
+                    <Link to={"/faq"}>FAQ</Link>
                 </li>
                 <li>
-                    <a href="#"><h3>My Account</h3></a>
+                    <Link to={"/account"}><h3>My Account</h3></Link>
                 </li>
             </ul>
         </nav>
