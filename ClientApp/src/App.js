@@ -12,12 +12,12 @@ import {AuthContext} from "./context/auth.context";
 
 function App() {
 
-    const {login, logout, token, userId, ready} = useAuth()
+    const {login, logout, token, ready} = useAuth()
     const isAuthenticated = !!token
 
     return (
         <AuthContext.Provider value={{
-            login, logout, token, userId, isAuthenticated
+            login, logout, token, isAuthenticated
         }}>
             <Router>
                 <Routes />

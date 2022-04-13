@@ -2,13 +2,23 @@ import "./DropdownLogin.scss"
 
 import {FiMail} from "react-icons/all";
 import {FiLock} from "react-icons/all";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import $api from "../../../http";
+import {AuthContext} from "../../../context/auth.context";
 
 const DropdownLogin = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [accountType, setAccountType] = useState("student")
+
+    const auth = useContext(AuthContext)
+
+    const onLogin = async () => {
+        const response = await $api.post(`/student/login`, {"Email": email, "Password": password}, {withCredentials: true})
+        const token = response.data
+        auth.login(token)
+    }
 
     return (
         <form className="login__form">
@@ -41,7 +51,7 @@ const DropdownLogin = () => {
                     </div>
                 </div>
                 <div className="login-form__button-wrap">
-                    <button type={"button"}>Sign In</button>
+                    <button type={"button"} onClick={onLogin}>Sign In</button>
                 </div>
                 <hr className="sep-line__hor"/>
                 <div className="login-form__help-buttons">

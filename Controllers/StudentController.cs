@@ -43,6 +43,7 @@ namespace GraduationProject.Controllers
 
         // POST api/<StudentController>
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult<Student> Post([FromBody] Student student)
         {
 

@@ -4,8 +4,17 @@ import arrowIcon from "../../../assets/icons/arrow.png"
 
 import { FiSettings } from "react-icons/all";
 import {FiLogOut} from "react-icons/all";
+import {useContext} from "react";
+import {AuthContext} from "../../../context/auth.context";
 
 const DropdownAuthorized = () => {
+
+    const auth = useContext(AuthContext)
+
+    const onLogout = () => {
+        auth.logout()
+    }
+
     return (
         <>
             <div className="header-account__user-card">
@@ -24,9 +33,9 @@ const DropdownAuthorized = () => {
                 </div>
                 <hr className="sep-line__hor" />
                 <div className="user-card__bottom">
-                    <div></div>
+                    <div/>
                     <hr className="sep-line__vert" />
-                    <div></div>
+                    <div/>
                 </div>
             </div>
             <div className="header-account__content-links">
@@ -36,7 +45,7 @@ const DropdownAuthorized = () => {
                 </div>
                 <div className="header-account__content-link">
                     <FiLogOut />
-                    <div>Log Out</div>
+                    <div onClick={onLogout}>Log Out</div>
                 </div>
             </div>
         </>
