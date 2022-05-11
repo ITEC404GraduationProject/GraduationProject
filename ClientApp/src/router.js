@@ -4,6 +4,7 @@ import Home from "./components/home/Home";
 import SearchResults from "./components/search-results/SearchResults";
 import Registration from "./components/registration/Registration";
 import ApiTest from "./components/api-test-page/ApiTest";
+import CreateOffer from "./components/create-offer/CreateOffer";
 
 const Routes = () => {
     return (
@@ -16,6 +17,12 @@ const Routes = () => {
             </Route>
             <Route path="/registration">
                 <Registration />
+            </Route>
+            <Route path="/offer/create">
+                <CreateOffer />
+            </Route>
+            <Route path="/offer/:id">
+                <div>123123</div>
             </Route>
             <Route path="/agents">
 
