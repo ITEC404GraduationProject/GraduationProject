@@ -7,8 +7,8 @@ namespace GraduationProject.Services
         List<Student> Get();
         Student Get(string id);
         Student GetByEmail(string email);
-        Student Create(Student book);
-        void Update(string id, Student book);
+        Student Create(Student student);
+        void Update(string id, Student student);
         void Remove(string id);
         string Authenticate(Student student, string password);
     }

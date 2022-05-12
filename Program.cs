@@ -38,6 +38,7 @@ builder.Services.AddSingleton<IMongoClient>(sp =>
 
 
 builder.Services.AddScoped<IStudentServices, StudentServices>();
+builder.Services.AddScoped<IOfferServices, OfferServices>();
 
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
