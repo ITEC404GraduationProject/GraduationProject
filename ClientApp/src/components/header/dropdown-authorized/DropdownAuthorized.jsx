@@ -4,16 +4,23 @@ import arrowIcon from "../../../assets/icons/arrow.png"
 
 import { FiSettings } from "react-icons/all";
 import {FiLogOut} from "react-icons/all";
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../../context/auth.context";
 
 const DropdownAuthorized = () => {
 
     const auth = useContext(AuthContext)
 
+    const [userData, setUserData] = useState(null)
+
     const onLogout = () => {
         auth.logout()
     }
+
+    useEffect(() => {
+        const user = auth.user
+        setUserData(user)
+    }, [])
 
     return (
         <>
@@ -22,8 +29,8 @@ const DropdownAuthorized = () => {
                     <div className="user-card__info">
                         <img src={userIcon} alt=""/>
                         <div>
-                            <h4>Egor Arkhipov Dfjbskdhfbsdf</h4>
-                            <p>+ 7 *** *** ** 36</p>
+                            <h4>{userData?.name} {userData?.surname}</h4>
+                            <p>{userData?.email}</p>
                             <p className="link-like">Manage Account</p>
                         </div>
                     </div>

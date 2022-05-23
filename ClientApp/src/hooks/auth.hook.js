@@ -4,25 +4,31 @@ const storageName = 'token'
 
 export const useAuth = () => {
     const [token, setToken] = useState(null)
+    const [user, setUser] = useState(null)
     const [ready, setReady] = useState(null)
 
-    const login = useCallback(async (jwtToken) => {
+    const login = useCallback(async (jwtToken, user) => {
         setToken(jwtToken)
-        localStorage.setItem(storageName, jwtToken)
+        setUser(user)
+        localStorage.setItem("token", jwtToken)
+        localStorage.setItem("user", JSON.stringify(user))
     }, [])
 
     const logout = useCallback(() => {
         setToken(null)
-        localStorage.removeItem(storageName)
+        localStorage.removeItem("token")
+        localStorage.removeItem("user")
     }, [])
 
     useEffect(async () => {
-        const data = localStorage.getItem(storageName)
-        if (data) {
-            await login(data)
+        const token = localStorage.getItem("token")
+        const user = localStorage.getItem("user")
+
+        if (token && user) {
+            await login(token, JSON.parse(user))
         }
         setReady(true)
     }, [login])
 
-    return { login, logout, token, ready }
+    return { login, logout, token, user, ready }
 }

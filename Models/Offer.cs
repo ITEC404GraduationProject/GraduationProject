@@ -14,6 +14,14 @@ namespace GraduationProject.Models
         [BsonRequired]
         public string Description { get; set; }
 
+        [BsonElement("address")]
+        [BsonRequired]
+        public string Address { get; set; }
+
+        [BsonElement("imageLink")]
+        [BsonRequired]
+        public string ImageLink { get; set; } = "noImage.jpg";
+
         [BsonElement("viewCount")]
         [BsonRequired]
         public int ViewCount { get; set; }
@@ -21,22 +29,22 @@ namespace GraduationProject.Models
         [BsonElement("priceId")]
         [BsonRequired]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string PriceId { get; set; } = "6259607999701ebf5376aca8";
+        public string PriceId { get; set; }
 
         [BsonElement("agentId")]
         [BsonRequired]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string AgentId { get; set; } = "62595eeb99701ebf5376ac9d";
+        public string AgentId { get; set; }
 
         [BsonElement("housingTypeId")]
         [BsonRequired]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string HousingTypeId { get; set; } = String.Empty;
+        public string HousingTypeId { get; set; }
 
         [BsonElement("furnitureId")]
         [BsonRequired]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string FurnitureId { get; set; } = String.Empty;
+        public string FurnitureId { get; set; }
 
         [BsonElement("createdAt")]
         [BsonRequired]

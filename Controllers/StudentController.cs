@@ -73,7 +73,8 @@ namespace GraduationProject.Controllers
                 return Unauthorized();
             }
 
-            return Ok(token);
+            return Ok(new {token, user = existingStudent});
+           
         }
 
         // PUT api/<StudentController>/5

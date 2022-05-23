@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {GrDown, AiOutlineSearch} from "react-icons/all";
 import DoubleRangeSlider from "../double-range-slider/DoubleRangeSlider";
 import showSearchMore from "../../../style/scripts/showSeacrhMore";
+import {Link} from "react-router-dom";
 
 const SearchForm = () => {
 
@@ -46,11 +47,11 @@ const SearchForm = () => {
                             (option) =>
                                 (<option key={option.key} value={option.key}>{option.value}</option>))}
                     </select>
-                    <div className="search__button-wrap">
+                    <Link to={'/results'} className="search__button-wrap">
                         <button type={"button"}>
                             <AiOutlineSearch />
                         </button>
-                    </div>
+                    </Link>
                 </div>
             </div>
             { values &&

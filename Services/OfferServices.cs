@@ -39,5 +39,11 @@ namespace GraduationProject.Services
         {
             throw new NotImplementedException();
         }
+
+
+        public void GetImage(string imageName)
+        { 
+        }
+
     }
 }

@@ -16,8 +16,9 @@ const DropdownLogin = () => {
 
     const onLogin = async () => {
         const response = await $api.post(`/student/login`, {"Email": email, "Password": password}, {withCredentials: true})
-        const token = response.data
-        auth.login(token)
+        const token = response.data.token
+        const user = response.data.user
+        auth.login(token, user)
     }
 
     return (

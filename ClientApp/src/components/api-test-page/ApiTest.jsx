@@ -23,8 +23,6 @@ const ApiTest = () => {
         if (response.data) {
             setData(response.data)
         }
-        console.log(response.data)
-        console.log(Object.values(response.data[0]));
     }
 
 
