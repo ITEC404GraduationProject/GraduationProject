@@ -26,7 +26,7 @@ namespace GraduationProject.Services
 
         public Price Get(string id)
         {
-            throw new NotImplementedException();
+            return _price.Find(price => price.Id == id).FirstOrDefault();
         }
 
         public void Remove(string id)

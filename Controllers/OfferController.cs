@@ -9,12 +9,6 @@ namespace GraduationProject.Controllers
     [ApiController]
     public class OfferController : ControllerBase
     {
-        public class OfferDTO
-        {
-            public Offer Offer { get; set; }
-            public Furniture Furniture { get; set; }
-            public Price Price { get; set; }
-        }
 
         private readonly IOfferServices _offerServices;
         private readonly IPriceServices _priceServices;
@@ -31,7 +25,17 @@ namespace GraduationProject.Controllers
         [HttpGet]
         public ActionResult<List<Offer>> Get()
         {
-            return _offerServices.Get();
+            var offers = _offerServices.Get();
+
+            var offerDTOs = new List<OfferDTO>();
+
+            foreach (var offer in offers)
+            {
+                offerDTOs.Add(new OfferDTO { Offer = offer, Furniture = _furnitureServices.Get(offer.FurnitureId), Price = _priceServices.Get(offer.PriceId) });
+            }
+
+            return Ok(offerDTOs);
+
         }
 
         // GET api/<StudentController>/5
@@ -91,11 +95,23 @@ namespace GraduationProject.Controllers
         }
 
         // GET api/<StudentController>/5
-        [HttpGet("image/{id}")]
+        [HttpGet("image/{fileName}")]
         public ActionResult GetImage(string fileName)
         {
-            var path = $"./Images/{fileName}";
-            return new FileStreamResult(new FileStream(path, FileMode.Open), "image/png");
+            string[] splittedName = fileName.Split('.');
+            string extencion = splittedName[splittedName.Length - 1];
+
+            try
+            {
+                var path = $"./Images/{fileName}";
+                return new FileStreamResult(new FileStream(path, FileMode.Open), $"image/{extencion}");
+            }
+            catch
+            {
+                var path = $"./Images/noImage.jpg";
+                return new FileStreamResult(new FileStream(path, FileMode.Open), "image/jpg");
+            }
+
         }
     }
 }

@@ -26,7 +26,7 @@ namespace GraduationProject.Services
 
         public Furniture Get(string id)
         {
-            throw new NotImplementedException();
+            return _furniture.Find(furniture => furniture.Id == id).FirstOrDefault();
         }
 
         public void Remove(string id)
