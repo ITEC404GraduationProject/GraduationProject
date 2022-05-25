@@ -20,7 +20,7 @@ const DropdownAuthorized = () => {
     useEffect(() => {
         const user = auth.user
         setUserData(user)
-    }, [])
+    }, [auth])
 
     return (
         <>

@@ -2,12 +2,10 @@ import "./ResultsItem.scss"
 
 const ResultsItem = ({item}) => {
 
-    console.log(item)
-
     return (
         <div className="results__item">
             <div className="item__img">
-                <img src={"https://localhost:7039/api/offer/image/" + item.imageLink} alt={"Housing"} />
+                <img src={"https://localhost:7039/api/offer/image/" + item.offer.imageLink} alt={"Housing"} />
             </div>
             <div className="item__info">
                 <div className="item__info-left">
