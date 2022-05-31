@@ -10,6 +10,10 @@ namespace GraduationProject.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; } = String.Empty;
 
+        [BsonElement("title")]
+        [BsonRequired]
+        public string Title { get; set; }
+
         [BsonElement("description")]
         [BsonRequired]
         public string Description { get; set; }

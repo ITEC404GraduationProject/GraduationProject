@@ -10,7 +10,7 @@ const ResultsItem = ({item}) => {
             <div className="item__info">
                 <div className="item__info-left">
                     <div className="item__info-header">
-                        <span>{item.offer.name}</span>
+                        <span>{item.offer.title}</span>
                     </div>
                     <hr />
                         <div className="item__info-description">
