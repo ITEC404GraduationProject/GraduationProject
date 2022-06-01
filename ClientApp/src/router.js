@@ -3,6 +3,8 @@ import Home from "./components/home/Home";
 import SearchResults from "./components/search-results/SearchResults";
 import Accordion from "./components/faq/FaQ";
 import FaQp from "./components/faq/FaQ";
+import AbtUs from "./components/about/about";
+import ForUsr from "./components/forusers/forusers";
 
 
 const Routes = () => {
@@ -18,10 +20,10 @@ const Routes = () => {
 
             </Route>
             <Route path="/forusers">
-
+                <ForUsr />
             </Route>
             <Route path="/about">
-
+                <AbtUs />
             </Route>
             <Route path="/faq">
                 <FaQp />

@@ -27,6 +27,8 @@ const AccordionItem = ({
                 {item.answer}
             </p>
         </dd>
+
+        
     </div>
 );
 
