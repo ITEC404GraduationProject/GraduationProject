@@ -4,8 +4,25 @@ import arrowIcon from "../../../assets/icons/arrow.png"
 
 import { FiSettings } from "react-icons/all";
 import {FiLogOut} from "react-icons/all";
+import {useContext, useEffect, useState} from "react";
+import {AuthContext} from "../../../context/auth.context";
+import {Link} from "react-router-dom";
 
 const DropdownAuthorized = () => {
+
+    const auth = useContext(AuthContext)
+
+    const [userData, setUserData] = useState(null)
+
+    const onLogout = () => {
+        auth.logout()
+    }
+
+    useEffect(() => {
+        const user = auth.user
+        setUserData(user)
+    }, [auth])
+
     return (
         <>
             <div className="header-account__user-card">
@@ -13,8 +30,8 @@ const DropdownAuthorized = () => {
                     <div className="user-card__info">
                         <img src={userIcon} alt=""/>
                         <div>
-                            <h4>Egor Arkhipov Dfjbskdhfbsdf</h4>
-                            <p>+ 7 *** *** ** 36</p>
+                            <h4>{userData?.name} {userData?.surname}</h4>
+                            <p>{userData?.email}</p>
                             <p className="link-like">Manage Account</p>
                         </div>
                     </div>
@@ -24,9 +41,14 @@ const DropdownAuthorized = () => {
                 </div>
                 <hr className="sep-line__hor" />
                 <div className="user-card__bottom">
-                    <div></div>
+                    <div>
+                        {
+                            userData?.accountType === "AGENT" &&
+                            <Link to={"/create"}><div>Create Offer</div></Link>
+                        }
+                    </div>
                     <hr className="sep-line__vert" />
-                    <div></div>
+                    <div/>
                 </div>
             </div>
             <div className="header-account__content-links">
@@ -36,7 +58,7 @@ const DropdownAuthorized = () => {
                 </div>
                 <div className="header-account__content-link">
                     <FiLogOut />
-                    <div>Log Out</div>
+                    <div onClick={onLogout}>Log Out</div>
                 </div>
             </div>
         </>

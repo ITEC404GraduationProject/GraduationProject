@@ -43,6 +43,7 @@ namespace GraduationProject.Controllers
 
         // POST api/<StudentController>
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult<Student> Post([FromBody] Student student)
         {
 
@@ -72,7 +73,8 @@ namespace GraduationProject.Controllers
                 return Unauthorized();
             }
 
-            return Ok(token);
+            return Ok(new {token, user = existingStudent});
+           
         }
 
         // PUT api/<StudentController>/5

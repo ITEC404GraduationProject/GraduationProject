@@ -5,7 +5,7 @@ const HeaderAccountButton = ({buttonRef, onOpenDropdown}) => {
 
     return (
         <div className="header-account__button-content" ref={buttonRef} onClick={onOpenDropdown}>
-            <img className="header-account__img" src={userIcon} />
+            <img className="header-account__img" src={userIcon} alt="" />
         </div>
     )
 }

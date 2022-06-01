@@ -63,7 +63,7 @@ namespace GraduationProject.Services
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                        new Claim(ClaimTypes.Name, student.Name)
+                        new Claim(ClaimTypes.Name, student.Id)
                     }),
                     Expires = DateTime.UtcNow.AddHours(1),
                     SigningCredentials = new SigningCredentials(

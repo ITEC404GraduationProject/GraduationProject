@@ -1,6 +1,6 @@
-import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
 import "./DoubleRangeSlider.scss"
+import Nouislider from "nouislider-react";
 
 const DoubleRangeSlider = ({values, onValueChange}) => {
 

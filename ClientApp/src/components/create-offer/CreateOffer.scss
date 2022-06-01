@@ -1,0 +1,51 @@
+.create__form {
+  margin: 0 auto;
+  margin-top: 30px;
+  background-color: white;
+  box-shadow: 0 0 2px 1px rgba(0,0,0,0.15);
+  padding: 20px;
+  border-radius: 8px;
+  width: 900px;
+  //width: 900px;
+  //background-color: red;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    div {
+      width: 100%;
+    }
+  }
+  input {
+    border: 1px solid lightgray;
+    border-radius: 0;
+  }
+  button {
+    margin: 0 auto;
+    width: 200px;
+    height: 40px;
+  }
+}
+
+.a {
+  width: 100%;
+  height: 50px;
+  //background-color: red;
+  display: flex;
+  flex-direction: column;
+  select, option {
+    width: 100%;
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 0;
+    padding: 10px;
+  }
+}
+
+.checkboxes {
+  display: flex;
+}

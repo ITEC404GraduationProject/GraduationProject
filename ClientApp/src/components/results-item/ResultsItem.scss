@@ -41,23 +41,19 @@
   width: 100%;
   font-size: 14pt;
   height: 30%;
-  /*background: red;*/
 }
 
 .item__info-description {
   font-size: 12pt;
   height: 40%;
-  /*background: red;*/
 }
 
 .item__info-service {
   height: 30%;
   font-size: 10pt;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 20px;
-  /*justify-content: space-between;*/
-  /*padding-right: 30px;*/
 }
 
 .item__info-right {
@@ -66,7 +62,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .item__buttons-group {

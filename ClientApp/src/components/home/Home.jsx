@@ -1,9 +1,9 @@
 import "./Home.scss"
 
+import {useWindowSize} from "../../hooks/useWindowSize";
 import Header from "../header/Header";
 import SliderHomePage from "./slider-home-page/SliderHomePage";
 import SearchForm from "./search-form/SearchForm";
-import {useWindowSize} from "../../hooks/useWindowSize";
 
 
 const Home = () => {
