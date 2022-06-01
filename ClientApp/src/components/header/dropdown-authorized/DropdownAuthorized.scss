@@ -78,7 +78,16 @@
     width: 50%;
     height: 100%;
     transition: 0.3s;
-    cursor: pointer;
+    //cursor: pointer;
+    a {
+      div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 
   :nth-child(1) {

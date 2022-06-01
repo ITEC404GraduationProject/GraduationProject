@@ -5,6 +5,7 @@ import {FiLock} from "react-icons/all";
 import {useContext, useState} from "react";
 import $api from "../../../http";
 import {AuthContext} from "../../../context/auth.context";
+import {Link} from "react-router-dom";
 
 const DropdownLogin = () => {
 
@@ -15,7 +16,7 @@ const DropdownLogin = () => {
     const auth = useContext(AuthContext)
 
     const onLogin = async () => {
-        const response = await $api.post(`/student/login`, {"Email": email, "Password": password}, {withCredentials: true})
+        const response = await $api.post(`/${accountType}/login`, {"Email": email, "Password": password}, {withCredentials: true})
         const token = response.data.token
         const user = response.data.user
         auth.login(token, user)
@@ -57,7 +58,7 @@ const DropdownLogin = () => {
                 <hr className="sep-line__hor"/>
                 <div className="login-form__help-buttons">
                     <button type={"button"}>Forgot password?</button>
-                    <button type={"button"}>Not a user? Sign up</button>
+                    <Link to={"/registration"}><button type={"button"}>Not a user? Sign up</button></Link>
                 </div>
             </div>
             <div className="login-form__error-display">

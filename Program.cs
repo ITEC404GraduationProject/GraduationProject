@@ -42,6 +42,7 @@ builder.Services.AddScoped<IOfferServices, OfferServices>();
 builder.Services.AddScoped<IHousingTypeServices, HousingTypeServices>();
 builder.Services.AddScoped<IFurnitureServices, FurnitureServices>();
 builder.Services.AddScoped<IPriceServices, PriceServices>();
+builder.Services.AddScoped<IAgentServices, AgentServices>();
 
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";

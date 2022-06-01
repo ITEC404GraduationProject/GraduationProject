@@ -32,5 +32,9 @@ namespace GraduationProject.Models
         [BsonElement("studentNumber")]
         [BsonRequired]
         public string StudentNumber { get; set; }
+
+        [BsonElement("accountType")]
+        [BsonRequired]
+        public string AccountType { get; set; } = "STUDENT";
     }
 }

@@ -6,6 +6,7 @@ import { FiSettings } from "react-icons/all";
 import {FiLogOut} from "react-icons/all";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../../context/auth.context";
+import {Link} from "react-router-dom";
 
 const DropdownAuthorized = () => {
 
@@ -40,7 +41,12 @@ const DropdownAuthorized = () => {
                 </div>
                 <hr className="sep-line__hor" />
                 <div className="user-card__bottom">
-                    <div/>
+                    <div>
+                        {
+                            userData?.accountType === "AGENT" &&
+                            <Link to={"/offer/create"}><div>Create Offer</div></Link>
+                        }
+                    </div>
                     <hr className="sep-line__vert" />
                     <div/>
                 </div>
