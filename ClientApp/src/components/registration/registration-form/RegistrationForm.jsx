@@ -2,8 +2,11 @@ import "./RegistrationForm.scss";
 import FormGroup from "../form-group/FormGroup";
 import {useState} from "react";
 import $api from "../../../http";
+import {useHistory} from "react-router-dom";
 
 const RegistrationForm = ({ accountType, setAccountType, onChangeSide }) => {
+
+    const history = useHistory()
 
     const [formData, setFormData] = useState({
         email: "", password: "", confirmPassword: "", name: "", surname: "",
@@ -21,7 +24,7 @@ const RegistrationForm = ({ accountType, setAccountType, onChangeSide }) => {
 
     const onRegistration = async () => {
         const response = await $api.post(`/${accountType}`, {...formData}, {withCredentials: true})
-        console.log(response)
+        history.push("/home")
     }
 
 

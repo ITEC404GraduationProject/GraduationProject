@@ -8,12 +8,15 @@ import CreateOffer from "./components/create-offer/CreateOffer";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "./context/auth.context";
 import Header from "./components/header/Header";
+import Offer from "./components/offer/offer";
 
 const Routes = () => {
 
     const [accountType, setAccountType] = useState("")
-
+    const [ready, setReady] = useState(false)
     const auth = useContext(AuthContext)
+
+
 
     useEffect(() => {
         if (auth.user) {
@@ -21,9 +24,12 @@ const Routes = () => {
         } else {
             setAccountType("GUEST")
         }
+        setTimeout(() => {
+            setReady(true)
+        }, 500)
     }, [auth])
 
-    if (accountType === "") {
+    if (!ready) {
         return (
             <div>Loading</div>
         )
@@ -37,17 +43,18 @@ const Routes = () => {
                     <Route path="/home">
                         <Home />
                     </Route>
-                    { accountType === "AGENT" &&
-                        <Route path="/offer/create">
-                            <CreateOffer />
-                        </Route>
-                    }
                     <Route path="/results">
                         <SearchResults />
                     </Route>
+                    { accountType === "AGENT" &&
+                        <Route path="/create">
+                            <CreateOffer />
+                        </Route>
+                    }
                     <Route path="/offer/:id">
-                        <div>123123</div>
+                        <Offer />
                     </Route>
+
                     <Route path="/apitest">
                         <ApiTest />
                     </Route>

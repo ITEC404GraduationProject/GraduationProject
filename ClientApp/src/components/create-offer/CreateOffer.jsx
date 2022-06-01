@@ -3,10 +3,12 @@ import "./CreateOffer.scss"
 import Header from "../header/Header";
 import $api from "../../http";
 import {AuthContext} from "../../context/auth.context";
+import {useHistory} from "react-router-dom";
 
 const CreateOffer = () => {
 
     const auth = useContext(AuthContext)
+    const history = useHistory()
 
     const [formData, setFormData] = useState({
         title: "", description: "", address: "", amount: 0, furnitureId: "", priceId: "", currency: "dollar"
@@ -29,10 +31,14 @@ const CreateOffer = () => {
                 const responseImage = await $api.post('/offer/image', a, {withCredentials: true})
                 imageLink = responseImage.data.fileName
             }
-            const responseOffer = await $api.post('/offer', {offer: {...formData, imageLink}, furniture: formFurnitureData, price: formData}, {withCredentials: true})
+            const responseOffer = await $api.post('/offer',
+                { offer: {...formData, imageLink},
+                    furniture: formFurnitureData,
+                    price: formData}, {withCredentials: true})
         } else {
             console.log("Form data validation error")
         }
+        history.push("/home")
     }
 
     useEffect(async () => {

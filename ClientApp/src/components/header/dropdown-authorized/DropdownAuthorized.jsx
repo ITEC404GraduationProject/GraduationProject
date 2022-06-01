@@ -44,7 +44,7 @@ const DropdownAuthorized = () => {
                     <div>
                         {
                             userData?.accountType === "AGENT" &&
-                            <Link to={"/offer/create"}><div>Create Offer</div></Link>
+                            <Link to={"/create"}><div>Create Offer</div></Link>
                         }
                     </div>
                     <hr className="sep-line__vert" />

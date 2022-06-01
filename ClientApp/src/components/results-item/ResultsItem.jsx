@@ -1,4 +1,5 @@
 import "./ResultsItem.scss"
+import {Link} from "react-router-dom";
 
 const ResultsItem = ({item}) => {
 
@@ -19,7 +20,7 @@ const ResultsItem = ({item}) => {
                             </span>
                         </div>
                         <div className="item__info-service">
-                            <span>Agent: {item.offer.agentId}</span>
+                            <span>Agent: {item.agent.name + " " + item.agent.surname}</span>
                             <span>Address: {item.offer.address}</span>
                         </div>
                 </div>
@@ -30,7 +31,7 @@ const ResultsItem = ({item}) => {
                     </div>
                     <div className="item__buttons-group">
                         <button>♡</button>
-                        <button>Open</button>
+                        <button><Link to={`/offer/${item.offer.id}`}>Open</Link></button>
                     </div>
                 </div>
             </div>

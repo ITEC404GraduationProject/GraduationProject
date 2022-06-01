@@ -13,12 +13,14 @@ namespace GraduationProject.Controllers
         private readonly IOfferServices _offerServices;
         private readonly IPriceServices _priceServices;
         private readonly IFurnitureServices _furnitureServices;
+        private readonly IAgentServices _agentServices;
 
-        public OfferController(IOfferServices offerServices, IPriceServices priceServices, IFurnitureServices furnitureServices)
+        public OfferController(IOfferServices offerServices, IPriceServices priceServices, IFurnitureServices furnitureServices, IAgentServices agentServices)
         {
             _offerServices = offerServices;
             _priceServices = priceServices;
             _furnitureServices = furnitureServices;
+            _agentServices = agentServices;
         }
 
         // GET: api/<StudentController>
@@ -27,11 +29,11 @@ namespace GraduationProject.Controllers
         {
             var offers = _offerServices.Get();
 
-            var offerDTOs = new List<OfferDTO>();
+            var offerDTOs = new List<Object>();
 
             foreach (var offer in offers)
             {
-                offerDTOs.Add(new OfferDTO { Offer = offer, Furniture = _furnitureServices.Get(offer.FurnitureId), Price = _priceServices.Get(offer.PriceId) });
+                offerDTOs.Add(new { Offer = offer, Furniture = _furnitureServices.Get(offer.FurnitureId), Price = _priceServices.Get(offer.PriceId), Agent = _agentServices.Get(offer.AgentId)});
             }
 
             return Ok(offerDTOs);
@@ -48,7 +50,7 @@ namespace GraduationProject.Controllers
                 return NotFound($"Offer with Id = {id} not found");
             }
 
-            return offer;
+            return Ok(new {Offer = offer, Furniture = _furnitureServices.Get(offer.FurnitureId), Price = _priceServices.Get(offer.PriceId), Agent = _agentServices.Get(offer.AgentId)});
         }
 
         // POST api/<StudentController>

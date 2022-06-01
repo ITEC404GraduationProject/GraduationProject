@@ -20,12 +20,12 @@ namespace GraduationProject.Services
 
         public List<Agent> Get()
         {
-            return _agents.Find(student => true).ToList();
+            return _agents.Find(agent => true).ToList();
         }
 
         public Agent Get(string id)
         {
-            return _agents.Find(student => student.Id == id).FirstOrDefault();
+            return _agents.Find(agent => agent.Id == id).FirstOrDefault();
         }
 
         public Agent GetByEmail(string email)
