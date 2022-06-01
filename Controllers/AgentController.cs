@@ -23,6 +23,7 @@ namespace GraduationProject.Controllers
 
         // GET: api/<StudentController>
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult<List<Agent>> Get()
         {
             return _agentServices.Get();
