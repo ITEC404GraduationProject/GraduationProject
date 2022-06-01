@@ -10,6 +10,10 @@ import {AuthContext} from "./context/auth.context";
 import Header from "./components/header/Header";
 import Offer from "./components/offer/offer";
 import Agents from "./components/agents/Agents";
+import Accordion from "./components/faq/FaQ";
+import FaQp from "./components/faq/FaQ";
+import AbtUs from "./components/about/about";
+import ForUsr from "./components/forusers/forusers";
 
 const Routes = () => {
 
@@ -42,7 +46,6 @@ const Routes = () => {
                     <Route path="/offer/:id">
                         <Offer />
                     </Route>
-
                     <Route path="/apitest">
                         <ApiTest />
                     </Route>
@@ -50,13 +53,13 @@ const Routes = () => {
                         <Agents />
                     </Route>
                     <Route path="/forusers">
-
+                        <ForUsr />
                     </Route>
                     <Route path="/about">
-
+                        <AbtUs />
                     </Route>
                     <Route path="/faq">
-
+                        <FaQp />
                     </Route>
                     <Route path="/">
                         <Redirect to="/home">
@@ -72,13 +75,13 @@ const Routes = () => {
                 <Agents />
             </Route>
             <Route path="/forusers">
-
+                <ForUsr />
             </Route>
             <Route path="/about">
-
+                <AbtUs />
             </Route>
             <Route path="/faq">
-
+                <FaQp />
             </Route>
             { accountType === "GUEST" &&
                 <Route path="*">
