@@ -12,10 +12,13 @@ const SearchResults = () => {
     const [data, setData] = useState([])
     const [displayedData, setDisplayedData] = useState([])
 
-    useEffect(async () => {
-        const response = await $api.get(`/offer`, {withCredentials: true})
-        setData(response.data)
-        setDisplayedData(response.data)
+    useEffect(() => {
+        async function fetchData() {
+            const response = await $api.get(`/offer`, {withCredentials: true})
+            setData(response.data)
+            setDisplayedData(response.data)
+        }
+        fetchData()
     }, [])
 
     return (

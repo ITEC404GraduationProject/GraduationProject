@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import "./CreateOffer.scss"
 import Header from "../header/Header";
 import $api from "../../http";
@@ -21,7 +21,6 @@ const CreateOffer = () => {
 
     const [image, setImage] = useState("")
 
-
     const onCreate = async (e) => {
         const a = new FormData()
         a.append("postedFile", image)
@@ -31,7 +30,7 @@ const CreateOffer = () => {
                 const responseImage = await $api.post('/offer/image', a, {withCredentials: true})
                 imageLink = responseImage.data.fileName
             }
-            const responseOffer = await $api.post('/offer',
+            await $api.post('/offer',
                 { offer: {...formData, imageLink},
                     furniture: formFurnitureData,
                     price: formData}, {withCredentials: true})
@@ -41,9 +40,12 @@ const CreateOffer = () => {
         history.push("/home")
     }
 
-    useEffect(async () => {
-        const response = await $api.get(`/housingtype`, {withCredentials: true})
-        setSelectOpt(response.data)
+    useEffect( () => {
+        async function fetchHousingTypes() {
+            const response = await $api.get(`/housingtype`, {withCredentials: true})
+            setSelectOpt(response.data)
+        }
+        fetchHousingTypes()
     }, [])
 
     useEffect(() => {
@@ -74,26 +76,50 @@ const CreateOffer = () => {
             <Header />
             <div className="container">
                 <div className="page__row">
-                    <form>
-                        Title <input onChange={e => onChange(e, "title")} /> <br/>
-                        Description <input onChange={e => onChange(e, "description")} /> <br/>
-                        Address <input onChange={e => onChange(e, "address")} /> <br/>
-                        Price per month <input type="number" onChange={e => onChange(e, "amount")} /> <br/>
-                        <select onChange={e => onChange(e, "housingTypeId")} style={{width: "200px", marginBottom: "50px"}}>
-                            <option value={-1}>Select housing type</option>
-                            { selectOpt && selectOpt.map((option) => {
-                                return <option value={option.id}>{option.housingTypeName}</option>
-                            })}
-                        </select><br/>
-                        Bed <input type={"checkbox"} onChange={e => onFurnitureChange(e, "hasBed")}/>
-                        TV <input type={"checkbox"} onChange={e => onFurnitureChange(e, "hasTV")}/>
-                        Internet <input type={"checkbox"} onChange={e => onFurnitureChange(e, "hasInternet")}/>
-                        Microwave <input type={"checkbox"} onChange={e => onFurnitureChange(e, "hasMicrowave")}/>
-                        Kitchen <input type={"checkbox"} onChange={e => onFurnitureChange(e, "hasKitchen")}/>
-                        Washing Machine <input type={"checkbox"} onChange={e => onFurnitureChange(e, "hasWashingMachine")}/>
-                        Air Conditioner <input type={"checkbox"} onChange={e => onFurnitureChange(e, "hasAirConditioner")}/>
-                        Iron <input type={"checkbox"} onChange={e => onFurnitureChange(e, "hasIron")}/>
-                        <input type="file" onChange={onImageChange}/>
+                    <form className="create__form">
+                        <div className="row">
+                            <div>
+                                Title <input onChange={e => onChange(e, "title")} />
+                            </div>
+                            <div>
+                                Address <input onChange={e => onChange(e, "address")} />
+                            </div>
+                        </div>
+                        <div className="row">
+                            Description <input onChange={e => onChange(e, "description")} />
+                        </div>
+                        <div className="row">
+                            <div className="a">
+                                Price per month <input type="number" onChange={e => onChange(e, "amount")} />
+                            </div>
+                            <div className="a">
+                                Housing type
+                                <select onChange={e => onChange(e, "housingTypeId")}>
+                                    <option value={-1}>Select housing type</option>
+                                    { selectOpt && selectOpt.map((option) => {
+                                        return <option value={option.id}>{option.housingTypeName}</option>
+                                    })}
+                                </select>
+                            </div>
+                        </div>
+                        <hr className="sep-line__hor"/>
+                        <div className="show-more__checkbox-group">
+                            <div className="show-more__checkbox-input"><input id={"hasBed"} type={"checkbox"} onChange={e => onFurnitureChange(e, "hasBed")}/><label htmlFor={"hasBed"}>Bed</label></div>
+                            <div className="show-more__checkbox-input"><input id={"hasTV"} type={"checkbox"} onChange={e => onFurnitureChange(e, "hasTV")}/><label htmlFor={"hasTV"}>TV</label></div>
+                            <div className="show-more__checkbox-input"><input id={"hasInternet"} type={"checkbox"} onChange={e => onFurnitureChange(e, "hasInternet")}/><label htmlFor={"hasInternet"}>Internet</label></div>
+                            <div className="show-more__checkbox-input"><input id={"hasMicrowave"} type={"checkbox"} onChange={e => onFurnitureChange(e, "hasMicrowave")}/><label htmlFor={"hasMicrowave"}>Microwave</label></div>
+                        </div>
+                        <div className="show-more__checkbox-group">
+                            <div className="show-more__checkbox-input"><input id={"hasKitchen"} type={"checkbox"} onChange={e => onFurnitureChange(e, "hasKitchen")}/><label htmlFor={"hasKitchen"}>Kitchen</label></div>
+                            <div className="show-more__checkbox-input"><input id={"hasWashingMachine"} type={"checkbox"} onChange={e => onFurnitureChange(e, "hasWashingMachine")}/><label htmlFor={"hasWashingMachine"}>Washing Machine</label></div>
+                            <div className="show-more__checkbox-input"><input id={"hasAirConditioner"} type={"checkbox"} onChange={e => onFurnitureChange(e, "hasAirConditioner")}/><label htmlFor={"hasAirConditioner"}>Air Conditioner</label></div>
+                            <div className="show-more__checkbox-input"><input id={"hasIron"} type={"checkbox"} onChange={e => onFurnitureChange(e, "hasIron")}/><label htmlFor={"hasIron"}>Iron</label></div>
+                        </div>
+                        <hr className="sep-line__hor"/>
+                        <div className="row">
+                            Image <input type="file" onChange={onImageChange}/>
+                        </div>
+                        <hr className="sep-line__hor"/>
                         <button onClick={onCreate} type="button">Create</button>
                     </form>
                 </div>

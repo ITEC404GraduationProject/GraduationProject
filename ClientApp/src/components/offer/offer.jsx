@@ -44,7 +44,7 @@ const Offer = () => {
                                 </div>
                                 <div className="offer__agent">
                                     <div className="offer__agent-avatar">
-                                        <img src={userIcon}/>
+                                        <img src={userIcon} alt=""/>
                                     </div>
                                     <div>
                                         {offerData.agent.name + " " + offerData.agent.surname}

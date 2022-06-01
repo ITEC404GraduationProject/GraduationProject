@@ -1,6 +1,5 @@
 import {useState, useCallback, useEffect} from 'react'
 
-const storageName = 'token'
 
 export const useAuth = () => {
     const [token, setToken] = useState(null)

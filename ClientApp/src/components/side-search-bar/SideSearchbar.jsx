@@ -1,6 +1,5 @@
 import "./SideSearchbar.scss"
 import React, {useEffect, useState} from "react";
-import {disable} from "workbox-navigation-preload";
 
 const SideSearchbar = ({data, displayedData, setDisplayedData}) => {
 
@@ -11,19 +10,15 @@ const SideSearchbar = ({data, displayedData, setDisplayedData}) => {
         hasKitchen: false, hasWashingMachine: false, hasAirConditioner: false, hasIron: false
     })
 
-
     const reset = () => {
-        for (let key in formFurnitureData) {
-            setFormFurnitureData({hasBed: false, hasTV: false, hasInternet: false, hasMicrowave: false,
-                hasKitchen: false, hasWashingMachine: false, hasAirConditioner: false, hasIron: false})
-        }
+        setFormFurnitureData({hasBed: false, hasTV: false, hasInternet: false, hasMicrowave: false,
+            hasKitchen: false, hasWashingMachine: false, hasAirConditioner: false, hasIron: false})
         setKeyword("")
     }
 
     const onFurnitureChange = (e, field) => {
         setFormFurnitureData(prev => ({...prev, [field]: !formFurnitureData[field]}))
     }
-
 
     useEffect(() => {
         filterTest()

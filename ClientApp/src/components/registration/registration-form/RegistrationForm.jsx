@@ -23,7 +23,7 @@ const RegistrationForm = ({ accountType, setAccountType, onChangeSide }) => {
     }
 
     const onRegistration = async () => {
-        const response = await $api.post(`/${accountType}`, {...formData}, {withCredentials: true})
+        await $api.post(`/${accountType}`, {...formData}, {withCredentials: true})
         history.push("/home")
     }
 

@@ -9,14 +9,12 @@ import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "./context/auth.context";
 import Header from "./components/header/Header";
 import Offer from "./components/offer/offer";
+import Agents from "./components/agents/Agents";
 
 const Routes = () => {
 
     const [accountType, setAccountType] = useState("")
-    const [ready, setReady] = useState(false)
     const auth = useContext(AuthContext)
-
-
 
     useEffect(() => {
         if (auth.user) {
@@ -24,17 +22,7 @@ const Routes = () => {
         } else {
             setAccountType("GUEST")
         }
-        setTimeout(() => {
-            setReady(true)
-        }, 500)
     }, [auth])
-
-    if (!ready) {
-        return (
-            <div>Loading</div>
-        )
-    }
-
 
     return (
         <Switch>
@@ -59,8 +47,7 @@ const Routes = () => {
                         <ApiTest />
                     </Route>
                     <Route path="/agents">
-                        <Header />
-                        <div>123123</div>
+                        <Agents />
                     </Route>
                     <Route path="/forusers">
 
@@ -82,8 +69,7 @@ const Routes = () => {
                 <Registration />
             </Route>
             <Route path="/agents">
-                <Header />
-                <div>123123</div>
+                <Agents />
             </Route>
             <Route path="/forusers">
 

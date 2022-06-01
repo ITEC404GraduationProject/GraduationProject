@@ -12,7 +12,7 @@ import {AuthContext} from "./context/auth.context";
 
 function App() {
 
-    const {login, logout, token, user, ready} = useAuth()
+    const {login, logout, token, user} = useAuth()
     const isAuthenticated = !!token
 
     return (

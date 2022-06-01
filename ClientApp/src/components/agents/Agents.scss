@@ -1,0 +1,29 @@
+.page__row-agents {
+  display: flex;
+  flex-direction: column;
+
+  .input-group {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 900px;
+    display: flex;
+    gap: 20px;
+    input {
+      width: 100%;
+      border: 1px solid lightgray;
+      border-radius: 0;
+    }
+  }
+}
+
+.list {
+  margin: 0 auto;
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  //background-color: white;
+  //border-radius: 8px;
+  //box-shadow: 0 0 2px 1px rgba(0,0,0,0.15);
+}
+
