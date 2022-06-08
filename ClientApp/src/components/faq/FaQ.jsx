@@ -7,6 +7,7 @@ import Accordion from "./Accordion";
 
 import fffq from "../images/fffq.svg";
 import illustration__woman_mobile from "../images/illustration-woman-online-mobile.svg";
+import Header from "../header/Header";
 
 const questionsAnswers = [
     {
@@ -35,25 +36,30 @@ const questionsAnswers = [
 
 const FaQp = () => {
     return (
-        <div className="container">
-            <div className="component">
-                <div className="illustration">
+        <>
+            <Header />
+            <div className="container">
+                <div className="cc">
 
-                    <img
-                        className="illustration__woman-desktop"
-                        src={fffq}
-                        alt="illustration with woman"
-                    />
-                    <img
-                        className="illustration__woman-mobile"
-                        src={illustration__woman_mobile}
-                        alt="illustration with woman"
-                    />
                 </div>
-                <Accordion questionsAnswers={questionsAnswers} />
-            </div>
+                <div className="component">
+                    <div className="illustration">
+                        <img
+                            className="illustration__woman-desktop"
+                            src={fffq}
+                            alt="illustration with woman"
+                        />
+                        <img
+                            className="illustration__woman-mobile"
+                            src={illustration__woman_mobile}
+                            alt="illustration with woman"
+                        />
+                    </div>
+                    <Accordion questionsAnswers={questionsAnswers} />
+                </div>
 
-        </div>
+            </div>
+        </>
     );
 };
 

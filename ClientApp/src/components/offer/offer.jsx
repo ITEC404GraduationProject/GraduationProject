@@ -36,7 +36,8 @@ const Offer = () => {
                                 <div className="offer__top">
                                     <h3>{offerData.offer.title}</h3>
                                     <div className="offer__price">
-
+                                        <h3>{offerData.price.amount * 12}$ / year</h3>
+                                        <h4>{offerData.price.amount}$ / month</h4>
                                     </div>
                                 </div>
                                 <div>

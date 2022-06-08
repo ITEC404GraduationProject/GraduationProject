@@ -1,32 +1,4 @@
 
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(#ffffff, #ffffff);
-  color: #787887FF;
-  font-family: "Kumbh Sans", sans-serif;
-  font-size: 12px;
-  line-height: 18px;
-  font-weight: 400;
-
-  /*min-height and grid place-items center in a body to put attribution right under the component.
-  but generally I think it's better to put height and grid on container */
-
-  /*min-height so linear-gradient would not clipp at the bottom */
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-}
 
 h1 {
   color: #1D1E35FF;
@@ -56,22 +28,11 @@ button:focus-visible {
   outline-offset: 0;
 }
 
-#root {
-  width: 100%;
-}
 
-.container {
-  max-width: 1440px;
-  width: 100%;
-}
 
 .font-weight-bold {
   font-weight: 700;
 }
-
-
-
-
 
 .faq__desc.show-description {
   height: 10rem;
@@ -113,6 +74,7 @@ button:focus-visible {
 
 .component {
   margin: 0 auto;
+  //margin-top: 50px;
   max-width: 920px;
   width: 100%;
   background-color: #ffffff;
@@ -273,8 +235,9 @@ $light-grayish-blue: hsl(240, 5%, 91%);
   }
 }
 
-
-
+.cc {
+  height: 120px;
+}
 
 
 
