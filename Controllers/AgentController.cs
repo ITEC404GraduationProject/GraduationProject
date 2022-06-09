@@ -36,7 +36,7 @@ namespace GraduationProject.Controllers
             var agent = _agentServices.Get(id);
             if (agent == null)
             {
-                return NotFound($"Student with Id = {id} not found");
+                return NotFound($"Agent with Id = {id} not found");
             }
 
             return agent;
@@ -55,7 +55,7 @@ namespace GraduationProject.Controllers
                 return CreatedAtAction(nameof(Get), new { id = agent.Id }, agent);
             }
 
-            return NotFound("Student with this email already exist");
+            return NotFound("Agent with this email already exist");
         }
 
         [AllowAnonymous]
@@ -65,7 +65,7 @@ namespace GraduationProject.Controllers
             var existingAgent = _agentServices.GetByEmail(userCred.Email);
             if (existingAgent == null)
             {
-                return NotFound("Student account with this email was not found");
+                return NotFound("Agent account with this email was not found");
             }
 
             var token = _agentServices.Authenticate(existingAgent, userCred.Password);
