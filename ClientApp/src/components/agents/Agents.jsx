@@ -31,19 +31,18 @@ const Agents = () => {
         let newData = data
         if (nameToSearch || surnameToSearch) {
             newData = newData.filter(item => {
-                return item.name.includes(nameToSearch) && item.surname.includes(surnameToSearch)
+                return item.name.toLowerCase().includes(nameToSearch.toLowerCase())
+                    && item.surname.toLowerCase().includes(surnameToSearch.toLowerCase())
             })
         }
         setDisplayedData(newData)
     }
-
 
     return (
         <div>
             <Header />
             <div className="container">
                 <div className="page__row page__row-agents">
-                    {/*<ResultsList data={displayedData} />*/}
                     <div className="input-group">
                         <input type="text" placeholder="Search By Name" value={nameToSearch} onChange={e => setNameToSearch(e.target.value)}/>
                         <input type="text" placeholder="Search By Surname" value={surnameToSearch} onChange={e => setSurameToSearch(e.target.value)}/>

@@ -1,19 +1,23 @@
 import "./SideSearchbar.scss"
 import React, {useEffect, useState} from "react";
 
-const SideSearchbar = ({data, displayedData, setDisplayedData}) => {
+const SideSearchbar = ({data, setDisplayedData, filters}) => {
 
     const [keyword, setKeyword] = useState("")
+
+    const [values, setValues] = useState({minValue: 0, maxValue: 0})
+    const [searchParams, setSearchParams] = useState({minValue: 0, maxValue: 0})
 
     const [formFurnitureData, setFormFurnitureData] = useState({
         hasBed: false, hasTV: false, hasInternet: false, hasMicrowave: false,
         hasKitchen: false, hasWashingMachine: false, hasAirConditioner: false, hasIron: false
     })
 
-    const reset = () => {
+    const onReset = () => {
         setFormFurnitureData({hasBed: false, hasTV: false, hasInternet: false, hasMicrowave: false,
             hasKitchen: false, hasWashingMachine: false, hasAirConditioner: false, hasIron: false})
         setKeyword("")
+        setSearchParams({...values})
     }
 
     const onFurnitureChange = (e, field) => {
@@ -22,42 +26,42 @@ const SideSearchbar = ({data, displayedData, setDisplayedData}) => {
 
     useEffect(() => {
         filterTest()
-    }, [formFurnitureData, keyword])
+    }, [formFurnitureData, keyword, data, searchParams])
 
-    const filterTest = () => {
-        let hasFurnitureToFilter = false
-        for(let key in formFurnitureData) {
-            if (formFurnitureData[key] === true) {
-                hasFurnitureToFilter = true
+    useEffect(() => {
+        if (filters) {
+            if (filters.keyword) {
+                setKeyword(filters.keyword)
+            }
+            if (filters.values) {
+                setValues(filters.values)
+            }
+            if (filters.searchParams) {
+                setSearchParams(filters.searchParams)
+            }
+            if (filters.formFurnitureData) {
+                setFormFurnitureData(prevState => ({...prevState, ...filters.formFurnitureData}))
             }
         }
+    }, [filters])
 
+    const filterTest = () => {
         let newData = data
         newData = newData.filter(offer => {
-            if (keyword && !hasFurnitureToFilter) {
-                return offer.offer.title.includes(keyword)
+            if (offer.price.amount < searchParams.minValue || offer.price.amount > searchParams.maxValue) {
+                return false
             }
-            if (hasFurnitureToFilter) {
-                let hasOption = false
-                for (let key in formFurnitureData) {
-                    if (formFurnitureData[key] === true) {
-                        if (offer.furniture[key] === formFurnitureData[key]) {
-                            hasOption = true
-                        }
-                    }
-                }
-                if (hasOption) {
-                    return offer
-                } else {
+            if (!offer.offer.title.toLowerCase().includes(keyword.toLowerCase())) {
+                return false
+            }
+            for (let key in formFurnitureData) {
+                if (formFurnitureData[key] === true && formFurnitureData[key] !== offer.furniture[key]) {
                     return false
                 }
             }
-            return false
+            return true
         })
         setDisplayedData(newData)
-        if (newData.length === 0 && !keyword) {
-            setDisplayedData(data)
-        }
     }
 
     return (
@@ -79,19 +83,12 @@ const SideSearchbar = ({data, displayedData, setDisplayedData}) => {
                     <hr/>
                     <h4>Price</h4>
                     <div className="search__prices">
-                        <input type="text" placeholder="from"/>
-                        <input type="text" placeholder="to"/>
+                        <input type="text" value={searchParams.minValue} onChange={e=> setSearchParams(prevState => ({...prevState, minValue: Number(e.target.value)}))} placeholder="from"/>
+                        <input type="text" value={searchParams.maxValue} onChange={e=> setSearchParams(prevState => ({...prevState, maxValue: Number(e.target.value)}))} placeholder="to"/>
                     </div>
-                    <select>
-                        <option>Year</option>
-                        <option>6 months</option>
-                        <option>3 months</option>
-                        <option>1 month</option>
-                    </select>
                     <div className="search__checkboxes">
                     </div>
-                    <button type={"button"} className="search__btn">Search</button>
-                    <button type={"button"} className="search__btn" onClick={reset}>Reset</button>
+                    <button type="button" onClick={onReset}>Reset</button>
                 </form>
             </div>
         </div>

@@ -32,12 +32,12 @@ const DropdownAuthorized = () => {
                         <div>
                             <h4>{userData?.name} {userData?.surname}</h4>
                             <p>{userData?.email}</p>
-                            <p className="link-like">Manage Account</p>
+                            <p className="link-like">{userData?.contact && userData.contact}</p>
                         </div>
                     </div>
-                    <div className="user-card__arrow">
-                        <img src={arrowIcon} alt=""/>
-                    </div>
+                    {/*<div className="user-card__arrow">*/}
+                    {/*    <img src={arrowIcon} alt=""/>*/}
+                    {/*</div>*/}
                 </div>
                 <hr className="sep-line__hor" />
                 <div className="user-card__bottom">
@@ -47,15 +47,9 @@ const DropdownAuthorized = () => {
                             <Link to={"/create"}><div>Create Offer</div></Link>
                         }
                     </div>
-                    <hr className="sep-line__vert" />
-                    <div/>
                 </div>
             </div>
             <div className="header-account__content-links">
-                <div className="header-account__content-link">
-                    <FiSettings />
-                    <div>Settings</div>
-                </div>
                 <div className="header-account__content-link">
                     <FiLogOut />
                     <div onClick={onLogout}>Log Out</div>

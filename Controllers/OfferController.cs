@@ -14,13 +14,15 @@ namespace GraduationProject.Controllers
         private readonly IPriceServices _priceServices;
         private readonly IFurnitureServices _furnitureServices;
         private readonly IAgentServices _agentServices;
+        private readonly IHousingTypeServices _housingTypeServices;
 
-        public OfferController(IOfferServices offerServices, IPriceServices priceServices, IFurnitureServices furnitureServices, IAgentServices agentServices)
+        public OfferController(IOfferServices offerServices, IPriceServices priceServices, IFurnitureServices furnitureServices, IAgentServices agentServices, IHousingTypeServices housingTypeServices)
         {
             _offerServices = offerServices;
             _priceServices = priceServices;
             _furnitureServices = furnitureServices;
             _agentServices = agentServices;
+            _housingTypeServices = housingTypeServices;
         }
 
         // GET: api/<StudentController>
@@ -33,7 +35,12 @@ namespace GraduationProject.Controllers
 
             foreach (var offer in offers)
             {
-                offerDTOs.Add(new { Offer = offer, Furniture = _furnitureServices.Get(offer.FurnitureId), Price = _priceServices.Get(offer.PriceId), Agent = _agentServices.Get(offer.AgentId)});
+                offerDTOs.Add(new { Offer = offer, 
+                    Furniture = _furnitureServices.Get(offer.FurnitureId), 
+                    Price = _priceServices.Get(offer.PriceId), 
+                    Agent = _agentServices.Get(offer.AgentId),
+                    HousingType = _housingTypeServices.Get(offer.HousingTypeId)
+                });
             }
 
             return Ok(offerDTOs);
@@ -50,7 +57,12 @@ namespace GraduationProject.Controllers
                 return NotFound($"Offer with Id = {id} not found");
             }
 
-            return Ok(new {Offer = offer, Furniture = _furnitureServices.Get(offer.FurnitureId), Price = _priceServices.Get(offer.PriceId), Agent = _agentServices.Get(offer.AgentId)});
+            return Ok(new {Offer = offer, 
+                Furniture = _furnitureServices.Get(offer.FurnitureId), 
+                Price = _priceServices.Get(offer.PriceId), 
+                Agent = _agentServices.Get(offer.AgentId),
+                HousingType = _housingTypeServices.Get(offer.HousingTypeId)
+            });
         }
 
         // POST api/<StudentController>

@@ -4,8 +4,6 @@ import "./AgentsItems.scss"
 
 const AgentsItem = ({item}) => {
 
-    console.log(item)
-
     return (
         <div className="agents__item">
             <div className="agents__item-avatar">
@@ -20,7 +18,7 @@ const AgentsItem = ({item}) => {
                         Phone Number:
                     </div>
                     <div>
-                        +7-963-223-33-36
+                        {item.contact}
                     </div>
                 </div>
                 <div className="contact__item">

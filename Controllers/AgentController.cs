@@ -55,7 +55,7 @@ namespace GraduationProject.Controllers
                 return CreatedAtAction(nameof(Get), new { id = agent.Id }, agent);
             }
 
-            return Content("Student with this email already exist");
+            return NotFound("Student with this email already exist");
         }
 
         [AllowAnonymous]

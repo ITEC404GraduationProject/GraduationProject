@@ -26,7 +26,7 @@ namespace GraduationProject.Services
         public Agent Get(string id)
         {
             return _agents.Find(agent => agent.Id == id).FirstOrDefault();
-        }
+        }   
 
         public Agent GetByEmail(string email)
         {

@@ -57,7 +57,6 @@ const DropdownLogin = () => {
                 </div>
                 <hr className="sep-line__hor"/>
                 <div className="login-form__help-buttons">
-                    <button type={"button"}>Forgot password?</button>
                     <Link to={"/registration"}><button type={"button"}>Not a user? Sign up</button></Link>
                 </div>
             </div>

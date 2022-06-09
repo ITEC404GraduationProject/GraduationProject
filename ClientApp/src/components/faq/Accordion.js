@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AccordionItem from "./AccordionItem";
 
 const Accordion = ({ questionsAnswers }) => {
-    const [activeIndex, setActiveIndex] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     const renderedQuestionsAnswers = questionsAnswers.map((item, index) => {
         const showDescription = index === activeIndex ? "show-description" : "";

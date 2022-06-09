@@ -2,7 +2,6 @@ import "./ResultsItem.scss"
 import {Link} from "react-router-dom";
 
 const ResultsItem = ({item}) => {
-
     return (
         <div className="results__item">
             <div className="item__img">

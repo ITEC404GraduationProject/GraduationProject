@@ -8,9 +8,11 @@ const RegistrationForm = ({ accountType, setAccountType, onChangeSide }) => {
 
     const history = useHistory()
 
+    const [errorMsg, setErrorMsg] = useState("")
+
     const [formData, setFormData] = useState({
         email: "", password: "", confirmPassword: "", name: "", surname: "",
-        studentNumber: "", phoneNumber: ""
+        studentNumber: "", contact: ""
     })
 
     const onChangeAccountType = (newAccountType) => {
@@ -23,10 +25,53 @@ const RegistrationForm = ({ accountType, setAccountType, onChangeSide }) => {
     }
 
     const onRegistration = async () => {
-        await $api.post(`/${accountType}`, {...formData}, {withCredentials: true})
-        history.push("/home")
+        if (formData.email) {
+            if (formData.password && formData.confirmPassword && formData.password === formData.confirmPassword) {
+                if (formData.name && formData.surname) {
+                    if (accountType === "student") {
+                        if (formData.studentNumber) {
+                            await test()
+                        } else {
+                            setErrorMsg("Enter student number")
+                        }
+                    }
+                    if (accountType === "agent") {
+                        if (formData.contact) {
+                            await test()
+                        } else {
+                            setErrorMsg("Enter phone number")
+                        }
+                    }
+                } else {
+                    setErrorMsg("Enter name and surname")
+                }
+            } else {
+                setErrorMsg("Enter password and confirm it")
+            }
+        } else {
+            setErrorMsg("You have to enter email")
+        }
     }
 
+    const test = async () => {
+        try {
+            await $api.post(`/${accountType}`, {...formData}, {withCredentials: true})
+            history.push("/home")
+        } catch (e) {
+            if (e.response.data.errors) {
+                for (let i in e.response.data.errors) {
+                    setErrorMsg(e.response.data.errors[i][0])
+                }
+            }
+            else {
+                setErrorMsg(e.response.data)
+            }
+        }
+    }
+
+    const goBack = () => {
+        history.push("/home")
+    }
 
 
     return (
@@ -44,7 +89,7 @@ const RegistrationForm = ({ accountType, setAccountType, onChangeSide }) => {
                 {
                     accountType === "student" ?
                     <FormGroup formData={formData} onFormDataUpdate={onFormDataUpdate} type={"text"} name={"studentNumber"} label={"Student Number"} placeholder={"Student Number"} /> :
-                    <FormGroup formData={formData} onFormDataUpdate={onFormDataUpdate} type={"text"} name={"phoneNumber"} label={"Phone Number"} placeholder={"Phone Number"} />
+                    <FormGroup formData={formData} onFormDataUpdate={onFormDataUpdate} type={"text"} name={"contact"} label={"Phone Number"} placeholder={"Phone Number"} />
                     // <FormGroup type={"file"} name={"identityDocument"} label={"Identity Document"} placeholder={"Identity Document"} />
                 }
 
@@ -53,7 +98,14 @@ const RegistrationForm = ({ accountType, setAccountType, onChangeSide }) => {
                 <FormGroup formData={formData} onFormDataUpdate={onFormDataUpdate} type={"password"} name={"confirmPassword"} label={"Confirm Password"} placeholder={"Confirm Password"} />
                 <div className="form-btn">
                     <button type="button" onClick={onRegistration} className="btn">Registration</button>
+                    <button type="button" onClick={goBack} className="btn">Go Back</button>
                 </div>
+                {
+                    errorMsg &&
+                    <div className="error_msg">
+                        { errorMsg }
+                    </div>
+                }
             </form>
         </div>
     )

@@ -3,7 +3,7 @@ import "./DoubleRangeSlider.scss"
 import Nouislider from "nouislider-react";
 
 const DoubleRangeSlider = ({values, onValueChange}) => {
-
+    console.log(values)
     return (
         <div className="double-range__container">
             <Nouislider

@@ -11,7 +11,7 @@ const CreateOffer = () => {
     const history = useHistory()
 
     const [formData, setFormData] = useState({
-        title: "", description: "", address: "", amount: 0, furnitureId: "", priceId: "", currency: "dollar"
+        title: "", description: "", address: "", amount: null, furnitureId: "", priceId: "", currency: "dollar"
     })
     const [formFurnitureData, setFormFurnitureData] = useState({
         hasBed: false, hasTV: false, hasInternet: false, hasMicrowave: false,
@@ -21,23 +21,44 @@ const CreateOffer = () => {
 
     const [image, setImage] = useState("")
 
+    const [errorMsg, setErrorMsg] = useState("")
+
     const onCreate = async (e) => {
         const a = new FormData()
         a.append("postedFile", image)
-        if (formData.title && formData.description && formData.address && formData.housingTypeId && formData.agentId) {
-            let imageLink
-            if (image) {
-                const responseImage = await $api.post('/offer/image', a, {withCredentials: true})
-                imageLink = responseImage.data.fileName
+
+        if (formData.agentId) {
+            if (formData.title) {
+                if (formData.description && formData.description.length > 30 && formData.description.length < 300) {
+                    if (formData.address) {
+                        if (formData.amount !== null && formData.amount !== 0) {
+                            if (formData.housingTypeId) {
+                                let imageLink
+                                if (image) {
+                                    const responseImage = await $api.post('/offer/image', a, {withCredentials: true})
+                                    imageLink = responseImage.data.fileName
+                                }
+                                await $api.post('/offer',
+                                    { offer: {...formData, imageLink},
+                                        furniture: formFurnitureData,
+                                        price: formData}, {withCredentials: true})
+                                history.push("/home")
+                            } else {
+                                setErrorMsg("Choose housing type")
+                            }
+                        } else {
+                            setErrorMsg("Enter price per month")
+                        }
+                    } else {
+                        setErrorMsg("Enter address")
+                    }
+                } else {
+                    setErrorMsg("Enter description. Length of description should be between 30 and 300 characters")
+                }
+            } else {
+                setErrorMsg("Enter title")
             }
-            await $api.post('/offer',
-                { offer: {...formData, imageLink},
-                    furniture: formFurnitureData,
-                    price: formData}, {withCredentials: true})
-        } else {
-            console.log("Form data validation error")
         }
-        history.push("/home")
     }
 
     useEffect( () => {
@@ -57,8 +78,12 @@ const CreateOffer = () => {
 
     const onChange = (e, field) => {
         let value = e.target.value
-        if (field === "price") {
+        if (field === "amount") {
             value = Number(value)
+            if (value === 0) {
+                console.log(value)
+                value = null
+            }
         }
         setFormData(prev => ({...prev, [field]: value}))
     }
@@ -79,18 +104,18 @@ const CreateOffer = () => {
                     <form className="create__form">
                         <div className="row">
                             <div>
-                                Title <input onChange={e => onChange(e, "title")} />
+                                Title <input placeholder={"Title"} onChange={e => onChange(e, "title")} />
                             </div>
                             <div>
-                                Address <input onChange={e => onChange(e, "address")} />
+                                Address <input placeholder={"Address"} onChange={e => onChange(e, "address")} />
                             </div>
                         </div>
                         <div className="row">
-                            Description <input onChange={e => onChange(e, "description")} />
+                            Description <input placeholder={"Description"} onChange={e => onChange(e, "description")} />
                         </div>
                         <div className="row">
                             <div className="a">
-                                Price per month <input type="number" onChange={e => onChange(e, "amount")} />
+                                Price per month <input placeholder={"Price per month"} type="number" onChange={e => onChange(e, "amount")} />
                             </div>
                             <div className="a">
                                 Housing type
@@ -121,6 +146,9 @@ const CreateOffer = () => {
                         </div>
                         <hr className="sep-line__hor"/>
                         <button onClick={onCreate} type="button">Create</button>
+                        <div className="error_msg">
+                            {errorMsg}
+                        </div>
                     </form>
                 </div>
             </div>

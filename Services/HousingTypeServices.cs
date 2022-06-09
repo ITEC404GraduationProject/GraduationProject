@@ -26,7 +26,7 @@ namespace GraduationProject.Services
 
         public HousingType Get(string id)
         {
-            throw new NotImplementedException();
+            return _housingTypes.Find(housingType => housingType.Id == id).FirstOrDefault();
         }
 
         public void Remove(string id)

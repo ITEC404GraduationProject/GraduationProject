@@ -29,14 +29,10 @@ namespace GraduationProject.Models
         [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
 
-        [BsonElement("identityDocumentLink")]
-        [BsonRequired]
-        public string IdentityDocumentLink { get; set; } = String.Empty;
 
-
-        [BsonElement("contactId")]
+        [BsonElement("contact")]
         [BsonRequired]
-        public string ContactId { get; set; } = String.Empty;
+        public string Contact { get; set; }
 
 
         [BsonElement("accountType")]

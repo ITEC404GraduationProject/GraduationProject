@@ -21,12 +21,24 @@ namespace GraduationProject.Services
 
         public List<Price> Get()
         {
-            return _price.Find(Price => true).ToList();
+            return _price.Find(price => true).ToList();
         }
 
         public Price Get(string id)
         {
             return _price.Find(price => price.Id == id).FirstOrDefault();
+        }
+
+        public List<Price> GetHighestAndLowest()
+        {
+            var sortedPrices = _price.Find(price => true).SortBy(price => price.Amount).ToList();
+            List<Price> result = new List<Price>();
+            if (sortedPrices.Count > 0)
+            {
+                result.Add(sortedPrices.First());
+                result.Add(sortedPrices.Last());
+            }
+            return result;
         }
 
         public void Remove(string id)

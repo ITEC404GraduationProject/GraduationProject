@@ -10,7 +10,6 @@ import {AuthContext} from "./context/auth.context";
 import Header from "./components/header/Header";
 import Offer from "./components/offer/offer";
 import Agents from "./components/agents/Agents";
-import Accordion from "./components/faq/FaQ";
 import FaQp from "./components/faq/FaQ";
 import AbtUs from "./components/about/about";
 import ForUsr from "./components/forusers/forusers";

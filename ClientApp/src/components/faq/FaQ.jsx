@@ -39,9 +39,7 @@ const FaQp = () => {
         <>
             <Header />
             <div className="container">
-                <div className="cc">
-
-                </div>
+                <div className="cc" />
                 <div className="component">
                     <div className="illustration">
                         <img

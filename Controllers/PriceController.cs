@@ -36,6 +36,13 @@ namespace GraduationProject.Controllers
             return price;
         }
 
+        [HttpGet("minmax")]
+        public ActionResult<Price> GetHighestAndLowest()
+        {
+            var price = _priceServices.GetHighestAndLowest();
+            return Ok(price);
+        }
+
         // POST api/<StudentController>
         [HttpPost]
         public ActionResult<Price> Post([FromBody] Price price)

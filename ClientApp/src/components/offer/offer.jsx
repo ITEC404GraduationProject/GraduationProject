@@ -51,7 +51,8 @@ const Offer = () => {
                                         {offerData.agent.name + " " + offerData.agent.surname}
                                     </div>
                                     <div>
-                                        +7-963-223-33-36
+                                        {offerData.agent.email + "    " + offerData.agent.contact}
+
                                     </div>
                                 </div>
                             </div>
