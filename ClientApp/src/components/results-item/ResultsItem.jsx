@@ -2,6 +2,7 @@ import "./ResultsItem.scss"
 import {Link} from "react-router-dom";
 
 const ResultsItem = ({item}) => {
+    console.log(item)
     return (
         <div className="results__item">
             <div className="item__img">
@@ -21,6 +22,7 @@ const ResultsItem = ({item}) => {
                         <div className="item__info-service">
                             <span>Agent: {item.agent.name + " " + item.agent.surname}</span>
                             <span>Address: {item.offer.address}</span>
+                            <span>Housing Type: {item.housingType.housingTypeName}</span>
                         </div>
                 </div>
                 <div className="item__info-right">
@@ -29,7 +31,6 @@ const ResultsItem = ({item}) => {
                         <h5>{item.price.amount}/Month</h5>
                     </div>
                     <div className="item__buttons-group">
-                        <button>♡</button>
                         <button><Link to={`/offer/${item.offer.id}`}>Open</Link></button>
                     </div>
                 </div>

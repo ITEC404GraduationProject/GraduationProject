@@ -41,6 +41,9 @@ const Offer = () => {
                                     </div>
                                 </div>
                                 <div>
+                                    <h4>Housing Type: {offerData.housingType.housingTypeName}</h4>
+                                </div>
+                                <div>
                                     {offerData.offer.description}
                                 </div>
                                 <div className="offer__agent">
